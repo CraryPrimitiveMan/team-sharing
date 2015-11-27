@@ -346,7 +346,7 @@ $stateProvider
 
 ----
 
-![$state](/ppts/images/justin/state.png)
+![$state](/images/justin/state.png)
 
 [slide]
 
