@@ -1,0 +1,13 @@
+/*可以比for实现更复杂的循环,和 @for 指令很相似，只要 @while 后面的条件为 true 就会执行*/
+
+$i: 6;
+@while $i > 0 {
+  .while-item-#{$i} { 
+    width: 20px * $i; 
+    height: 30px;
+    border-radius: 4px;
+    background-color: red;
+    border: 1px solid #fff;
+  }
+  $i: $i - 2;
+}

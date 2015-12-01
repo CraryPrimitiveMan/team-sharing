@@ -1,0 +1,36 @@
+$type: monster;
+.color-if {
+  @if $type == ocean {
+    color: blue;
+  } @else if $type == matador {
+    color: red;
+  } @else if $type == monster {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+
+
+@mixin blockOrHidden($boolean:true) {
+  @if $boolean {
+    display: block;
+  }
+  @else {
+    display: none;
+  }
+}
+.block {
+  @include blockOrHidden;
+}
+
+.hidden{
+  @include blockOrHidden(false);
+}
+
+
+/* Miscellaneous函数称为三元条件函数.他有两个值，当条件成立返回一种值，当条件不成立时返回另一种值：
+if($condition,$if-true,$if-false) */
+.miscellaneous {
+  width: if(true,1px,2px);
+}

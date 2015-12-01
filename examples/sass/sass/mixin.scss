@@ -1,0 +1,27 @@
+
+$table-operation-height: 30px;
+$table-operation-width: 30px;
+//混合能够使你重用一整段Sass代码，能够给他们传递参数,
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin background-size($width, $height) {
+  background-size: $width $height;
+}
+
+@mixin background-image ($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+}
+
+@mixin icon($width, $height, $url) {
+  display: inline-block;
+  vertical-align: middle;
+  @include size($width, $height);
+  @include background-size($width, $height);
+  @include background-image($url);
+}
+
+

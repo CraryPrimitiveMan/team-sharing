@@ -1,0 +1,32 @@
+/* Sass 中的 @extend 是用来扩展选择器或占位符. */
+//在编译时将被替换为父选择符，输出到 CSS 中。 也就是说，如果你有一个深层嵌套的规则，父选择符也会在 & 被替换之前被完整的解析
+
+//扩展选择器
+.hoverlink {
+  @extend a:hover;
+}
+.comment a.user:hover {
+  font-weight: bold;
+}
+
+/*
+.comment a.user:hover, .comment .user.hoverlink {
+  font-weight: bold; 
+}
+*/
+//扩展单一选择器
+#context a%b {
+  color: blue;
+  font-weight: bold;
+  font-size: 2em;
+}
+.notice {
+  @extend %b;
+}
+/*
+#context a.notice {
+  color: blue;
+  font-weight: bold;
+  font-size: 2em;
+}
+*/

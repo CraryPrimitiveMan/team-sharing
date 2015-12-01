@@ -1,0 +1,49 @@
+/*
+包括了几个判断型函数：
+type-of($value)：返回一个值的类型,返回值：number(数值型),string(字符串型),bool(布尔型),color(颜色型)。
+unit($number)：返回一个值的单位,乘除可以多单位组合,加减除了px 与 cm、mm ,其他报错；
+unitless($number)：判断一个值是否带有单位，不带单位返回的值为true，带单位返回的值为 false;
+comparable($number-1, $number-2)：判断两个值是否可以做加、减和合并,可以返回true，不可以返回false
+*/
+
+.introspection-type {
+    content: type-of(100px);
+    content: type-of(true);
+    content: type-of(#fff);
+    content: type-of(1 / 2 = 1);
+}
+
+.introspection-unit {
+    content: unit(10px * 3em);
+    content: unit(1px + 1mm);
+}
+
+.introspection-unitless {
+    /*不带单位*/
+    content: unitless(1 /2 + 2);
+    content: unitless(100px);
+}
+
+.introspection-comparable {
+    content: comparable(2px,1rem);
+    content: comparable(1cm,1mm);
+}
+
+
+@mixin icon-location($x, $y) {
+  @if unitless($x) {
+    $x: 1px * $x;
+    color: red;
+  }
+  @if unitless($y) {
+    $y: 1px * $y;
+    color: red;
+  }
+  position: relative; 
+  left: $x; 
+  top: $y;
+}
+
+.botton-icon{
+    @include icon-location(20px, 30);
+}

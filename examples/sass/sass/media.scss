@@ -1,0 +1,55 @@
+
+//响应式设计布局之@media
+/*
+有点类似 JS 的冒泡功能一样，如果在样式中使用 @media 指令，它将冒泡到外面,将@media提到.sidebar样式的外边了。
+*/
+.sidebar {
+  width: 900px;
+  @media screen and (max-width: 600px) {
+    /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+    width: 500px;
+  }
+}
+
+@media print and (min-width:600px) and (max-width:600px) {
+/*上面针对了所有设备，这段是只(only)针对彩色屏幕设备*/
+}
+
+/* 手机等小屏幕手持设备 */
+@media all and (min-width:320px) and (max-width:480px) {
+/*这段查询的all是针对所有设备(有些设备不一定是屏幕，也许是打字机，盲人阅读器)*/
+}
+
+/* 平板之类的宽度 1024 以下设备 */
+@media only screen and (min-width:321px) and (max-width:1024px) {
+}
+
+/* PC客户端或大屏幕设备: 1028px 至更大 */
+@media only screen and (min-width:1029px) {
+}
+
+/* 竖屏orientation:portrait */
+@media screen and (device-pixel-ratio:3/4) and (max-width: 720px) {
+}
+
+/* 横屏orientation:landscape */
+@media screen and (orientation:landscape) {
+}
+
+
+$media: screen;
+$feature: -webkit-min-device-pixel-ratio;
+$value: 1.5;//分辨率480×800 
+/*
+device-pixel-ratio的常见值对比（是设备上物理像素和设备独立像素，设备像素比率）
+设备                         分辨率             设备像素比率
+Android LDPI                320×240            0.75
+Iphone 3 & Android MDPI     320×480            1
+Android HDPI                480×800            1.5
+Iphone 4                    960×640            2.0
+*/
+.sidebar {
+  @media #{$media} and ($feature: $value) {
+    width: 500px;
+  }
+}

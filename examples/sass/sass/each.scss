@@ -1,0 +1,22 @@
+/*
+@each $var in <list>
+*/
+$animal-list: cat, dog, rabbit, rotate;
+@each $animal in $animal-list {
+  .#{$animal}-icon {
+    @include icon(150px, 150px, '../images/animal/#{$animal}.jpg');
+  }
+}
+
+$headings: (h1: 2em, h2: 1.5em, h3: 1.2em);
+@mixin author-images {
+  @each $header, $size in $headings {
+    #{$header} {
+      font-size: $size;
+    }
+  }
+}
+
+.author-bio {
+    @include author-images;
+}

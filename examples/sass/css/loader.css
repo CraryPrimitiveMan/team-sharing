@@ -1,0 +1,757 @@
+@charset "UTF-8";
+/*
+css有一个@import规则，它允许在一个css文件中导入其他css文件。
+然而，后果是只有执行到@import时，浏览器才会去下载其他css文件，这导致页面加载起来特别慢。
+sass也有一个@import规则，但不同的是，sass的@import规则在生成css文件时就把相关文件导入进来。
+这意味着所有相关的样式被归纳到了同一个css文件中，而无需发起额外的下载请求。
+*/
+/*
+Sass 会在当前目录下寻找其他 Sass 文件， 
+如果是 Rack、Rails 或 Merb 环境中则是 Sass 文件目录。 
+也可以通过 :load_paths 选项或者在命令行中使用 --load-path 选项来指定额外的搜索目录。
+*/
+/*
+你有一个文件叫做 _colors.scss。@import "colors" or @import "_colors";这样就不会生成 _colors.css 文件了*/
+/*加 +、减 -、乘 *、除 /和取模 %），并且，如果需要的话，也可以在不同单位间做转换*/
+.operation {
+  width: 1.11111in;
+  content: 10px/8px;
+  width: 500px;
+  width: 1;
+  height: 250px;
+  margin-left: 9px;
+  font: 0.4;
+  font: 12px/30px;
+}
+
+.icon-twitter {
+  background-postion: 0 -20px;
+}
+
+.icon-facebook {
+  background-postion: 0 -40px;
+}
+
+.icon-github {
+  background-postion: 0 -60px;
+}
+
+.icon-weibo {
+  background-postion: 0 -80px;
+}
+
+.color-if {
+  color: green;
+}
+
+.block {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Miscellaneous函数称为三元条件函数.他有两个值，当条件成立返回一种值，当条件不成立时返回另一种值：
+if($condition,$if-true,$if-false) */
+.miscellaneous {
+  width: 1px;
+}
+
+/*
+@for $var from <start> through <end>
+@for $var from <start> to <end> to不包含<end>
+*/
+.through-item-1 {
+  width: 2em;
+}
+
+.through-item-2 {
+  width: 4em;
+}
+
+.through-item-3 {
+  width: 6em;
+}
+
+.to-item-1 {
+  width: 2em;
+}
+
+.to-item-2 {
+  width: 4em;
+}
+
+/*
+@each $var in <list>
+*/
+.cat-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  background-size: 150px 150px;
+  background-image: url("../images/animal/cat.jpg");
+  background-repeat: no-repeat;
+}
+
+.dog-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  background-size: 150px 150px;
+  background-image: url("../images/animal/dog.jpg");
+  background-repeat: no-repeat;
+}
+
+.rabbit-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  background-size: 150px 150px;
+  background-image: url("../images/animal/rabbit.jpg");
+  background-repeat: no-repeat;
+}
+
+.rotate-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  background-size: 150px 150px;
+  background-image: url("../images/animal/rotate.jpg");
+  background-repeat: no-repeat;
+}
+
+.author-bio h1 {
+  font-size: 2em;
+}
+.author-bio h2 {
+  font-size: 1.5em;
+}
+.author-bio h3 {
+  font-size: 1.2em;
+}
+
+/*可以比for实现更复杂的循环,和 @for 指令很相似，只要 @while 后面的条件为 true 就会执行*/
+.while-item-6 {
+  width: 120px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: red;
+  border: 1px solid #fff;
+}
+
+.while-item-4 {
+  width: 80px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: red;
+  border: 1px solid #fff;
+}
+
+.while-item-2 {
+  width: 40px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: red;
+  border: 1px solid #fff;
+}
+
+/*
+unquote()函数只能删除字符串最前和最后的引号（双引号或单引号），
+而无法删除字符串中间的引号。如果字符没有带引号，返回的将是字符串本身。
+*/
+.unquote-remove-none:after {
+  content: Hello Sass!;
+}
+
+/* .unquote-middle-one:after {
+    content: unquote("I'm Web Designer");
+} */
+.unquote-single-two:after {
+  content: 'Hello Sass!';
+}
+
+.unquote-double-two:after {
+  content: "Hello Sass!";
+}
+
+.unquote-none:after {
+  content: Hello Sass;
+}
+
+/*
+quote()函数主要用来给字符串添加引号。如果字符串，自身带有引号会统一换成双引号""。
+而且字符串中间有单引号或者空格时，需要用单引号或双引号括起，否则编译的时候将会报错。
+碰到特殊符号，比如说!、?、>等，除中折号-和下划线_都需要使用双引号括起
+*/
+.quote-none:after {
+  content: "Hello Sass!";
+}
+
+.quote-middle-one:after {
+  content: "I'm Web Designer";
+}
+
+.quote-single-two:after {
+  content: "'Hello Sass!'";
+}
+
+/*在文本字符串中，#{} 形式的表达式可以被用来在字符串中添加动态值*/
+.quote:before {
+  content: "I ate 15 pies!";
+}
+
+/* 空值会被视作空字符串*/
+.quote:after {
+  content: "I ate  pies!";
+}
+
+.upper-test {
+  text: "123412AA";
+  text: AA-AAAA-AAA;
+}
+
+.lower-test {
+  text: aaaaa;
+  text: aa-aaaa-aaa;
+}
+
+/* $family: unquote("Droid+Sans");
+@import url("http://fonts.googleapis.com/css?family=#{$family}");
+=>
+@import url("http://fonts.googleapis.com/css?family=Droid+Sans");
+*/
+/*
+percentage($value)：将一个不带单位的数转换成百分比值；
+round($value)：将数值四舍五入，转换成一个最接近的整数,可以携带单位的任何数值；
+ceil($value)：将大于自己的小数转换成下一位整数；
+floor($value)：将一个数去除他的小数部分；
+abs($value)：返回一个数的绝对值；
+min($numbers…)：找出几个数值之间的最小值,单位要一致；
+max($numbers…)：找出几个数值之间的最大值,单位要一致。
+random()
+*/
+/* 
+$digtal-list: percentage, round, ceil, floor, abs, min, max, random;
+@each $digtal in $digtal-list {
+  .number-#{$digtal} {
+    opacity: #{$digtal}(1.2);
+  }
+} */
+.number-percentage {
+  opacity: 120%;
+}
+
+.number-round {
+  width: 500px;
+}
+
+.number-ceil {
+  opacity: 2%;
+}
+
+.number-floor {
+  opacity: 1%;
+}
+
+.number-abs {
+  opacity: 1.2%;
+}
+
+.number-min {
+  opacity: 0.5;
+}
+
+.number-max {
+  opacity: 5;
+}
+
+.number-random {
+  opacity: 6;
+}
+
+/*
+有点类似 JS 的冒泡功能一样，如果在样式中使用 @media 指令，它将冒泡到外面,将@media提到.sidebar样式的外边了。
+*/
+.sidebar {
+  width: 900px;
+}
+@media screen and (max-width: 600px) {
+  .sidebar {
+    /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+    width: 500px;
+  }
+}
+
+@media print and (min-width: 600px) and (max-width: 600px) {
+  /*上面针对了所有设备，这段是只(only)针对彩色屏幕设备*/
+}
+/* 手机等小屏幕手持设备 */
+@media all and (min-width: 320px) and (max-width: 480px) {
+  /*这段查询的all是针对所有设备(有些设备不一定是屏幕，也许是打字机，盲人阅读器)*/
+}
+/* 平板之类的宽度 1024 以下设备 */
+/* PC客户端或大屏幕设备: 1028px 至更大 */
+/* 竖屏orientation:portrait */
+/* 横屏orientation:landscape */
+/*
+device-pixel-ratio的常见值对比（是设备上物理像素和设备独立像素，设备像素比率）
+设备                         分辨率             设备像素比率
+Android LDPI                320×240            0.75
+Iphone 3 & Android MDPI     320×480            1
+Android HDPI                480×800            1.5
+Iphone 4                    960×640            2.0
+*/
+@media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+  .sidebar {
+    width: 500px;
+  }
+}
+
+.btn-cancel {
+  color: #000;
+  background-color: gary;
+  border-color: gary;
+}
+
+/*
+使用 lighten() 和 darken() 函数来修改 10% 的亮度值：
+*/
+.gray-lighten {
+  color: #9a9a9a;
+}
+.gray-lighten:hover {
+  color: #000;
+}
+
+.gray-darken {
+  color: #676767;
+}
+.gray-darken:hover {
+  color: #000;
+}
+
+.gray-grayscale {
+  color: gray;
+}
+.gray-grayscale:hover {
+  color: #000;
+}
+
+.gray-complement {
+  color: #3333cc;
+}
+.gray-complement:hover {
+  color: #000;
+}
+
+/*计算公式为 01 + 04 = 05、02 + 05 = 07 和 03 + 06 = 09*/
+.color-operation1 {
+  background-color: rgba(255, 51, 102, 0.5);
+  background: rgba(255, 165, 0, 0.5);
+  color: #050709;
+}
+
+/*
+*rgba
+*R：红色值。正整数 | 百分数
+*G：绿色值。正整数 | 百分数
+*B：蓝色值。正整数| 百分数
+*A：透明度。取值0~1之间 alpha
+rgba($red,$green,$blue,$alpha)  //将一个rgba颜色转译出来，和未转译的值一样
+rgba($color,$alpha)  //将一个Hex颜色转换成rgba颜色
+red($color)：从一个颜色中获取其中红色值；
+green($color)：从一个颜色中获取其中绿色值；
+blue($color)：从一个颜色中获取其中蓝色值
+mix($color-1,$color-2,$weight);
+$color-1 和 $color-2 指的是你需要合并的颜色，颜色可以是任何表达式，也可以是颜色变量。
+$weight 为 合并的比例，其取值范围是 0~100% 之间。
+默认的比例是 50%，这意味着两个颜色各占一半，如果指定的比例是 25%，这意味着第一个颜色所占比例为 25%，第二个颜色所占比例为75%。
+
+-------------------------------------------
+*hsla:
+Hue(色相)。 0(或360)表示红色，120表示绿色，240表示蓝色，当然可取其他数值来确定其它颜色；
+Saturation(饱和度)。 取值为0%到100%之间的值；
+Lightness(亮度)。 取值为0%到100%之间的值；
+Alpha(透明度)。 取值在0到1之间；
+-------------------------------------------
+*hsl:
+hsl($hue,$saturation,$lightness)：通过色相（hue）、饱和度(saturation)和亮度（lightness）的值创建一个颜色；
+hsla($hue,$saturation,$lightness,$alpha)：通过色相（hue）、饱和度(saturation)、亮度（lightness）和透明（alpha）的值创建一个颜色；
+hue($color)：从一个颜色中获取色相（hue）值；
+saturation($color)：从一个颜色中获取饱和度（saturation）值；
+lightness($color)：从一个颜色中获取亮度（lightness）值；
+adjust-hue($color,$degrees)：通过改变一个颜色的色相值，创建一个新的颜色；$degrees为30deg
+色相是从 -360 和 360 之间，负值逆时针转，正值顺时针转。25deg相当于在355deg色相基础上增加30deg
+
+lighten($color,$amount)：通过改变颜色的亮度值，让颜色变亮，创建一个新的颜色；$amount百分比
+darken($color,$amount)：通过改变颜色的亮度值，让颜色变暗，创建一个新的颜色；
+saturate($color,$amount)：通过改变颜色的饱和度值，让颜色更饱和，从而创建一个新的颜色
+desaturate($color,$amount)：通过改变颜色的饱和度值，让颜色更少的饱和，从而创建出一个新的颜色；
+grayscale($color)：将一个颜色变成灰色，相当于desaturate($color,100%);
+complement($color)：返回一个补充色，相当于adjust-hue($color,180deg);
+invert($color)：反回一个反相色，红、绿、蓝色值倒过来，而透明度不变。
+*/
+/*rgba(255, 0, 0, 0.5) + rgba(0, 255, 0, 0.5);*/
+.color-operation2 {
+  color: rgba(255, 255, 0, 0.5);
+}
+
+.color-no-opacity {
+  color: yellow;
+}
+
+.color-red {
+  color: 200;
+}
+
+.color-green {
+  color: 40;
+}
+
+.color-blue {
+  color: 88;
+}
+
+/*hsla(255, 0, 0, 0.75) + hsla(0, 255, 0, 0.75);*/
+.color-operation3 {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+/*hsl(155, 2, 2) + hsl(20, 155, 20);*/
+.color-operation4 {
+  color: #6b2705;
+}
+
+/*
+alpha($color) /opacity($color)：获取颜色透明度值；
+rgba($color, $alpha)：改变颜色的透明度值；
+opacify($color, $amount) / fade-in($color, $amount)：使颜色更不透明；opacify添加$amount
+transparentize($color, $amount) / fade-out($color, $amount)：使颜色更加透明。
+*/
+/*rgba(255, 0, 0, 0.5)*/
+.color-operation5 {
+  /*opacify*/
+  color: rgba(255, 0, 0, 0.8);
+  /*transparentize*/
+  background-color: rgba(255, 0, 0, 0.25);
+}
+
+/*alpha值转成#AABBCCDD这样严格的格式*/
+.color-operation6 {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='false', startColorstr='#FF00FF00', endColorstr='#80FF0000');
+}
+
+.colors {
+  background-color: blue;
+  color: white;
+  border-color: blue;
+}
+
+#sidebar {
+  width: 10px;
+}
+
+.block {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.warn-tip {
+  color: red;
+  position: relative;
+  left: 100px;
+  top: 0px;
+}
+
+/* 列表函数主要包括一些对列表参数的函数使用
+length($list)：返回一个列表的长度值；
+nth($list, $n)：返回一个列表中指定的某个标签值, $n 必须是大于 0 的整数
+join($list1, $list2, [$separator])：将两个列给连接在一起，变成一个列表,只能两个,可以多个join,$separator有comma和space两个值；
+append($list1, $val, [$separator])：将某个值放在列表的最后；
+zip($lists…)：将几个列表结合成一个多维的列表；
+index($list, $value)：返回一个值在列表中的位置值,不存在是false。
+
+ */
+.list-function-style {
+  /* size: length(percentage, round, ceil, floor); */
+  content: percentage, round, ceil, floor;
+  size: 4;
+  content: "percentage";
+  size: 1;
+  content: percentage, round, ceil, floor, abs, min, max, random, blue, red;
+  content: percentage, round, ceil, floor, abs, min, max, random, blue, red, percentage;
+  content: percentage, round, ceil, floor, percentage;
+  content: percentage abs, round min, ceil max, floor random;
+}
+
+/*
+包括了几个判断型函数：
+type-of($value)：返回一个值的类型,返回值：number(数值型),string(字符串型),bool(布尔型),color(颜色型)。
+unit($number)：返回一个值的单位,乘除可以多单位组合,加减除了px 与 cm、mm ,其他报错；
+unitless($number)：判断一个值是否带有单位，不带单位返回的值为true，带单位返回的值为 false;
+comparable($number-1, $number-2)：判断两个值是否可以做加、减和合并,可以返回true，不可以返回false
+*/
+.introspection-type {
+  content: number;
+  content: bool;
+  content: color;
+  content: string;
+}
+
+.introspection-unit {
+  content: "em*px";
+  content: "px";
+}
+
+.introspection-unitless {
+  /*不带单位*/
+  content: true;
+  content: false;
+}
+
+.introspection-comparable {
+  content: false;
+  content: true;
+}
+
+.botton-icon {
+  color: red;
+  position: relative;
+  left: 20px;
+  top: 30px;
+}
+
+/*
+map-get($map,$key)：根据给定的key值，返回map中相关的值。
+map-keys($map)：返回map中所有的key。
+map-values($map)：返回map中所有的value。
+*/
+.btn-default {
+  color: #6a6f7a;
+  background-color: #fff;
+  border-color: #dce4e6;
+  /* Get button style according to the font color */
+  /* Get button style according to the font color */
+  /* Get action style according to the type */
+  /* Get action style according to the type */
+  /* Get action style according to the type */
+  /* Define disabled button style */
+  /* Get button style according to the font color */
+}
+.btn-default:hover {
+  background-color: #fff;
+  border-color: #09bcbc;
+  color: #09bcbc;
+  box-shadow: none;
+  outline: 0;
+}
+.btn-default:active {
+  background-color: #fff;
+  border-color: #dce4e6;
+  color: #6a6f7a;
+  box-shadow: none;
+  outline: 0;
+}
+.btn-default:focus {
+  background-color: #fff;
+  border-color: #09bcbc;
+  color: #09bcbc;
+  box-shadow: none;
+  outline: 0;
+}
+.btn-default.disable {
+  background-color: #edf1f2;
+  border-color: #edf1f2;
+  color: #6a6f7a;
+  cursor: not-allowed;
+}
+
+/* map-has-key($map,$key)：根据给定的key值判断map是否有对应的value值，如果有返回true，否则返回 false。 */
+.btn-dribble {
+  color: #ea4c89;
+}
+
+/* 
+map-merge($map1,$map2)：将两个map合并成一个新的map。
+map-remove($map,$key)：从map中删除一个key，返回一个新map。
+*/
+/*
+keywords($args) 函数可以说是一个动态创建 map 的函数。
+可以通过混合宏或函数的参数变创建 map。
+参数也是成对出现，其中 $args 变成 key(会自动去掉$符号)，而 $args 对应的值就是value。
+*/
+/* DEBUG: (dribble: #ea4c89, facebook: #3b5998, github: #171515, google: #db4437, twitter: #55acee) */
+/* Sass 中的 @extend 是用来扩展选择器或占位符. */
+.comment a.user:hover, .comment .user.hoverlink {
+  font-weight: bold;
+}
+
+/*
+.comment a.user:hover, .comment .user.hoverlink {
+  font-weight: bold; 
+}
+*/
+#context a.notice {
+  color: blue;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+/*
+#context a.notice {
+  color: blue;
+  font-weight: bold;
+  font-size: 2em;
+}
+*/
+/* @at-root 从字面上解释就是跳出根元素。跳到最高层 */
+.a {
+  color: red;
+}
+.a .b {
+  color: orange;
+}
+.a .b .c {
+  color: yellow;
+}
+.d {
+  color: green;
+}
+
+/* .media-object {
+  background-image: url('../images/rotate.png');
+}
+ */
+.media-object {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 75px;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.media-object:hover {
+  /* -webkit-transform: rotate(360deg) scale(1.02);
+  -ms-transform: rotate(360deg) scale(1.02);
+  transform: rotate(360deg) scale(1.02); */
+  -webkit-transform: rotate(360deg) skew(-20deg) scale(1) translate(100px, 0);
+  -moz-transform: rotate(360deg) skew(-20deg) scale(1) translate(100px, 0);
+  transform: rotate(360deg) skew(-20deg) scale(1) translate(100px, 0);
+    /*
+    transform:rotate()：含义：旋转；其中“deg”是“度”的意思，如“10deg”表示“10度”下同。
+
+    transform:skew()：含义：倾斜；
+    transform:scale()：含义：比例；如果要放大2倍，须写成“2.0”，缩小则为负“-”。
+    transform:translate()：含义：变动，位移；如下表示向右位移120像素，transform: translate(120px,0);
+                                          如果向上位移，transform: translate(0,-120px);
+    */
+}
+
+/*
+%operate-icon,placeholder selector(占位符选择器),在css中不会找到%operate-icon样式
+.operate-icon,在css中会找到.operate-icon样式
+取代以前 CSS 中的基类造成的代码冗余的情形。因为 %placeholder 声明的代码，如果不被 @extend 调用的话，不会产生任何代码。
+通过 @extend 调用的占位符，编译出来的代码会将相同的代码合并在一起。
+*/
+.operate-icon, .edit-icon, .edit-icon-disable, .delete-icon, .delete-icon-disable {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+/*
+@extend可以继承其他选择器中的所有样式,但是会另外生成一个相同名字的样式
+@include会把样式加载到当前样式里
+*/
+.edit-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  background-image: url("../images/each/icon_edit_default.png");
+  background-repeat: no-repeat;
+}
+.edit-icon:hover {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  background-image: url("../images/each/icon_edit_hover.png");
+  background-repeat: no-repeat;
+}
+
+.edit-icon-disable {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  background-image: url("../images/each/icon_edit_disable.png");
+  background-repeat: no-repeat;
+  cursor: not-allowed;
+}
+
+.delete-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  background-image: url("../images/each/icon_delete_default.png");
+  background-repeat: no-repeat;
+}
+.delete-icon:hover {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  background-image: url("../images/each/icon_delete_hover.png");
+  background-repeat: no-repeat;
+}
+
+.delete-icon-disable {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  background-image: url("../images/each/icon_delete_disable.png");
+  background-repeat: no-repeat;
+  cursor: not-allowed;
+}
+
+/* Event Label */
+.ui.feed > .event > .label {
+  display: table-cell;
+  width: 2.5em;
+  height: 2.5em;
+  vertical-align: top;
+  text-align: left;
+}
+
+/* 假设要引入的样式文件`example.scss`文件中包含这样的代码
+.example {
+  color: red;
+}
+然后这样引用：
+
+#main {
+  @import "example";
+}
+编译出来的 CSS：
+
+#main .example {
+  color: red;
+} */
+
+/*# sourceMappingURL=loader.css.map */

@@ -1,0 +1,66 @@
+/*
+unquote()函数只能删除字符串最前和最后的引号（双引号或单引号），
+而无法删除字符串中间的引号。如果字符没有带引号，返回的将是字符串本身。
+*/
+
+.unquote-remove-none:after {
+    content: unquote('Hello Sass!');
+}
+/* .unquote-middle-one:after {
+    content: unquote("I'm Web Designer");
+} */
+.unquote-single-two:after {
+    content: unquote("'Hello Sass!'");
+}
+.unquote-double-two:after {
+    content: unquote('"Hello Sass!"');
+}
+.unquote-none:after {
+    content: unquote(Hello Sass);
+}
+
+/*
+quote()函数主要用来给字符串添加引号。如果字符串，自身带有引号会统一换成双引号""。
+而且字符串中间有单引号或者空格时，需要用单引号或双引号括起，否则编译的时候将会报错。
+碰到特殊符号，比如说!、?、>等，除中折号-和下划线_都需要使用双引号括起
+*/
+
+.quote-none:after {
+    content: quote('Hello Sass!');
+}
+.quote-middle-one:after {
+    content: quote("I'm Web Designer");
+}
+.quote-single-two:after {
+    content: quote("'Hello Sass!'");
+}
+
+/*在文本字符串中，\#{} 形式的表达式可以被用来在字符串中添加动态值*/
+.quote:before {
+  content: "I ate #{5 + 10} pies!";
+}
+
+/* 空值会被视作空字符串*/
+$value: null;
+.quote:after {
+  content: "I ate #{$value} pies!";
+}
+
+//To-upper-case()函数将字符串小写字母转换成大写字母
+.upper-test {
+  text: to-upper-case('123412aa');
+  text: to-upper-case(aA-aAAA-aaa);
+}
+
+//To-lower-case()函数将字符串转换成小写字母,数字加引号
+
+.lower-test {
+  text: to-lower-case(AAAAA);
+  text: to-lower-case(aA-aAAA-aaa);
+}
+
+/* $family: unquote("Droid+Sans");
+@import url("http://fonts.googleapis.com/css?family=\#{$family}");
+=>
+@import url("http://fonts.googleapis.com/css?family=Droid+Sans");
+*/

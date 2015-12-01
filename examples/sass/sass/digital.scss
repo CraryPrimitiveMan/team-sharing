@@ -1,0 +1,49 @@
+/*
+percentage($value)：将一个不带单位的数转换成百分比值；
+round($value)：将数值四舍五入，转换成一个最接近的整数,可以携带单位的任何数值；
+ceil($value)：将大于自己的小数转换成下一位整数；
+floor($value)：将一个数去除他的小数部分；
+abs($value)：返回一个数的绝对值；
+min($numbers…)：找出几个数值之间的最小值,单位要一致；
+max($numbers…)：找出几个数值之间的最大值,单位要一致。
+random()
+*/
+/* 
+$digtal-list: percentage, round, ceil, floor, abs, min, max, random;
+@each $digtal in $digtal-list {
+  .number-\#{$digtal} {
+    opacity: \#{$digtal}(1.2);
+  }
+} */
+
+.number-percentage {
+  opacity: percentage(1.2);
+}
+
+.number-round {
+  width: round(1.2px)*500;
+}
+
+.number-ceil {
+  opacity: ceil(1.2%);
+}
+
+.number-floor {
+  opacity: floor(1.2%);
+}
+
+.number-abs {
+  opacity: abs(-1.2%);
+}
+
+.number-min {
+  opacity: min(0.5,1,2,3,4,5);
+}
+
+.number-max {
+  opacity: max(1,2,3,4,5);
+}
+
+.number-random {
+  opacity: random(10);
+}

@@ -1,0 +1,40 @@
+$operate-icons: edit, delete;
+/*
+%operate-icon,placeholder selector(占位符选择器),在css中不会找到%operate-icon样式
+.operate-icon,在css中会找到.operate-icon样式
+取代以前 CSS 中的基类造成的代码冗余的情形。因为 %placeholder 声明的代码，如果不被 @extend 调用的话，不会产生任何代码。
+通过 @extend 调用的占位符，编译出来的代码会将相同的代码合并在一起。
+*/
+%operate-icon {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+/*
+@extend可以继承其他选择器中的所有样式,但是会另外生成一个相同名字的样式
+@include会把样式加载到当前样式里
+*/
+@each $icon in $operate-icons {
+  .#{$icon}-icon {
+    @extend %operate-icon;
+    @include icon($table-operation-width, $table-operation-height, '../images/each/icon_#{$icon}_default.png');
+    //&解开嵌套规则,被父选择器(#{$icon}-icon)直接替换
+    &:hover {
+      @include icon($table-operation-width, $table-operation-height, '../images/each/icon_#{$icon}_hover.png');
+    }
+  }
+  .#{$icon}-icon-disable {
+    @extend %operate-icon;
+    @include icon($table-operation-width, $table-operation-height, '../images/each/icon_#{$icon}_disable.png');
+    cursor: not-allowed;
+  }
+}
+
+/* Event Label */
+.ui.feed > .event > .label {
+  display: table-cell;
+  width: 2.5em;
+  height: 2.5em;
+  vertical-align: top;
+  text-align: left;
+}

@@ -1,0 +1,31 @@
+
+/* .media-object {
+  background-image: url('../images/rotate.png');
+}
+ */
+.media-object {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 75px;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  &:hover {
+    /* -webkit-transform: rotate(360deg) scale(1.02);
+    -ms-transform: rotate(360deg) scale(1.02);
+    transform: rotate(360deg) scale(1.02); */
+    -webkit-transform:rotate(360deg) skew(-20deg) scale(1.0) translate(100px,0);
+    -moz-transform:rotate(360deg) skew(-20deg) scale(1.0) translate(100px,0);
+    transform:rotate(360deg) skew(-20deg) scale(1.0) translate(100px,0);
+    /*
+    transform:rotate()：含义：旋转；其中“deg”是“度”的意思，如“10deg”表示“10度”下同。
+
+    transform:skew()：含义：倾斜；
+    transform:scale()：含义：比例；如果要放大2倍，须写成“2.0”，缩小则为负“-”。
+    transform:translate()：含义：变动，位移；如下表示向右位移120像素，transform: translate(120px,0);
+                                          如果向上位移，transform: translate(0,-120px);
+    */
+
+  }
+}
+

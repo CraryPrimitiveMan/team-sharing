@@ -1,0 +1,52 @@
+//@import url('.css');
+
+/*
+css有一个@import规则，它允许在一个css文件中导入其他css文件。
+然而，后果是只有执行到@import时，浏览器才会去下载其他css文件，这导致页面加载起来特别慢。
+sass也有一个@import规则，但不同的是，sass的@import规则在生成css文件时就把相关文件导入进来。
+这意味着所有相关的样式被归纳到了同一个css文件中，而无需发起额外的下载请求。
+*/
+
+/*
+Sass 会在当前目录下寻找其他 Sass 文件， 
+如果是 Rack、Rails 或 Merb 环境中则是 Sass 文件目录。 
+也可以通过 :load_paths 选项或者在命令行中使用 --load-path 选项来指定额外的搜索目录。
+*/
+
+/*
+你有一个文件叫做 _colors.scss。@import "colors" or @import "_colors";这样就不会生成 _colors.css 文件了*/
+@import 'operation';
+@import 'if';
+@import 'for';
+@import 'mixin';
+@import 'each';
+@import 'while';
+@import 'quote';
+@import 'digital';
+@import 'media';
+@import 'color';
+@import 'content';
+@import 'function';
+@import 'debug';
+@import 'list';
+@import 'introspection';
+@import 'map';
+@import 'extend';
+@import 'at-root';
+@import 'other';
+@import 'placeholder';
+
+/* 假设要引入的样式文件`example.scss`文件中包含这样的代码
+.example {
+  color: red;
+}
+然后这样引用：
+
+#main {
+  @import "example";
+}
+编译出来的 CSS：
+
+#main .example {
+  color: red;
+} */

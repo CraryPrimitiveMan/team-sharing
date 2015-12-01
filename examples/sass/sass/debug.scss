@@ -1,0 +1,37 @@
+@mixin blockOrHidden($boolean:true) {
+  @if $boolean {
+    @debug "$boolean is #{$boolean}";
+      display: block;
+    }
+    @else {
+      @debug "$boolean is #{$boolean}";
+      display: none;
+    }
+}
+.block {
+  @include blockOrHidden;
+}
+
+.hidden{
+  @include blockOrHidden(false);
+}
+
+@mixin adjust-location($x, $y) {
+  @if unitless($x) {
+    @warn "Assuming #{$x} to be in pixels";
+    $x: 1px * $x;
+    color: red;
+  }
+  @if unitless($y) {
+    @warn "Assuming #{$y} to be in pixels";
+    $y: 1px * $y;
+    color: red;
+  }
+  position: relative; 
+  left: $x; 
+  top: $y;
+}
+
+.warn-tip {
+  @include adjust-location(100px, 0);
+}

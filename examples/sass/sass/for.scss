@@ -1,0 +1,17 @@
+/*
+@for $var from <start> through <end>
+@for $var from <start> to <end> to不包含<end>
+*/
+
+@for $i from 1 through 3 {
+  .through-item-#{$i} { 
+    width: 2em * $i; 
+  }
+}
+
+
+@for $i from 1 to 3 {
+  .to-item-#{$i} { 
+    width: 2em * $i; 
+  }
+}

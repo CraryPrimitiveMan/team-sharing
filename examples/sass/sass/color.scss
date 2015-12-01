@@ -1,0 +1,140 @@
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+}
+
+.btn-cancel {
+  @include button-variant(#000, gary, gary);
+}
+/*
+使用 lighten() 和 darken() 函数来修改 10% 的亮度值：
+*/
+$gray-lighten:            lighten(gray, 10%); // #a2a2a2;
+$gray-darken:             darken(gray, 10%); // #222
+$gray-grayscale:          grayscale(#cc3); // #222
+$gray-complement:         complement(#cc3); // #222
+
+.gray-lighten {
+    color: $gray-lighten;
+    &:hover {
+      color: #000;
+    }
+}
+.gray-darken {
+    color: $gray-darken;
+    &:hover {
+      color: #000;
+    }
+}
+.gray-grayscale {
+    color: $gray-grayscale;
+    &:hover {
+      color: #000;
+    }
+}
+.gray-complement {
+    color: $gray-complement;
+    &:hover {
+      color: #000;
+    }
+}
+
+//颜色运算，红、绿、蓝各颜色分量会单独进行运算。
+/*计算公式为 01 + 04 = 05、02 + 05 = 07 和 03 + 06 = 09*/
+.color-operation1 {
+  background-color: rgba(#f36,.5);
+  background: rgba(orange,.5);
+  color: #010203 + #040506;
+}
+@debug mix(rgba(255, 100, 0, 0.6), rgba(255, 10, 0, 0.5), 60%);//必须百分号比例
+/*
+*rgba
+*R：红色值。正整数 | 百分数
+*G：绿色值。正整数 | 百分数
+*B：蓝色值。正整数| 百分数
+*A：透明度。取值0~1之间 alpha
+rgba($red,$green,$blue,$alpha)  //将一个rgba颜色转译出来，和未转译的值一样
+rgba($color,$alpha)  //将一个Hex颜色转换成rgba颜色
+red($color)：从一个颜色中获取其中红色值；
+green($color)：从一个颜色中获取其中绿色值；
+blue($color)：从一个颜色中获取其中蓝色值
+mix($color-1,$color-2,$weight);
+$color-1 和 $color-2 指的是你需要合并的颜色，颜色可以是任何表达式，也可以是颜色变量。
+$weight 为 合并的比例，其取值范围是 0~100% 之间。
+默认的比例是 50%，这意味着两个颜色各占一半，如果指定的比例是 25%，这意味着第一个颜色所占比例为 25%，第二个颜色所占比例为75%。
+
+-------------------------------------------
+*hsla:
+Hue(色相)。 0(或360)表示红色，120表示绿色，240表示蓝色，当然可取其他数值来确定其它颜色；
+Saturation(饱和度)。 取值为0%到100%之间的值；
+Lightness(亮度)。 取值为0%到100%之间的值；
+Alpha(透明度)。 取值在0到1之间；
+-------------------------------------------
+*hsl:
+hsl($hue,$saturation,$lightness)：通过色相（hue）、饱和度(saturation)和亮度（lightness）的值创建一个颜色；
+hsla($hue,$saturation,$lightness,$alpha)：通过色相（hue）、饱和度(saturation)、亮度（lightness）和透明（alpha）的值创建一个颜色；
+hue($color)：从一个颜色中获取色相（hue）值；
+saturation($color)：从一个颜色中获取饱和度（saturation）值；
+lightness($color)：从一个颜色中获取亮度（lightness）值；
+adjust-hue($color,$degrees)：通过改变一个颜色的色相值，创建一个新的颜色；$degrees为30deg
+色相是从 -360 和 360 之间，负值逆时针转，正值顺时针转。25deg相当于在355deg色相基础上增加30deg
+
+lighten($color,$amount)：通过改变颜色的亮度值，让颜色变亮，创建一个新的颜色；$amount百分比
+darken($color,$amount)：通过改变颜色的亮度值，让颜色变暗，创建一个新的颜色；
+saturate($color,$amount)：通过改变颜色的饱和度值，让颜色更饱和，从而创建一个新的颜色
+desaturate($color,$amount)：通过改变颜色的饱和度值，让颜色更少的饱和，从而创建出一个新的颜色；
+grayscale($color)：将一个颜色变成灰色，相当于desaturate($color,100%);
+complement($color)：返回一个补充色，相当于adjust-hue($color,180deg);
+invert($color)：反回一个反相色，红、绿、蓝色值倒过来，而透明度不变。
+*/
+//alpha值相同
+/*rgba(255, 0, 0, 0.5) + rgba(0, 255, 0, 0.5);*/
+.color-operation2 {
+  color: rgba(255, 0, 0, 0.5) + rgba(0, 255, 0, 0.5);
+}
+
+.color-no-opacity {
+  color: rgb(255, 0, 0) + rgb(0, 255, 0);
+}
+
+.color-red {
+  color: red(#c82858); //从#c82858颜色值中得到红色值 200
+}
+.color-green {
+  color: green(#c82858); //从#c82858颜色值中得到绿色值 40
+}
+.color-blue {
+  color: blue(#c82858); //从#c82858颜色值中得到蓝色值 88
+}
+
+/*hsla(255, 0, 0, 0.75) + hsla(0, 255, 0, 0.75);*/
+.color-operation3 {
+  color: hsla(255, 0, 0, 0.75) + hsla(0, 255, 0, 0.75);
+}
+/*hsl(155, 2, 2) + hsl(20, 155, 20);*/
+.color-operation4 {
+  color: hsl(155, 2, 2) + hsl(20, 155, 20);
+}
+/*
+alpha($color) /opacity($color)：获取颜色透明度值；
+rgba($color, $alpha)：改变颜色的透明度值；
+opacify($color, $amount) / fade-in($color, $amount)：使颜色更不透明；opacify添加$amount
+transparentize($color, $amount) / fade-out($color, $amount)：使颜色更加透明。
+*/
+/*rgba(255, 0, 0, 0.5)*/
+$translucent-red: rgba(255, 0, 0, 0.5);
+.color-operation5 {
+  /*opacify*/
+  color: opacify($translucent-red, 0.3);
+  /*transparentize*/
+  background-color: transparentize($translucent-red, 0.25);
+}
+
+/*alpha值转成#AABBCCDD这样严格的格式*/
+$translucent-red: rgba(255, 0, 0, 0.5);
+$green: #00ff00;
+.color-operation6 {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='false', startColorstr='#{ie-hex-str($green)}', endColorstr='#{ie-hex-str($translucent-red)}');
+}
+

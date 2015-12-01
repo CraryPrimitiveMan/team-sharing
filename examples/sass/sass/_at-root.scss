@@ -1,0 +1,17 @@
+/* @at-root 从字面上解释就是跳出根元素。跳到最高层 */
+
+.a {
+  color: red;
+
+  .b {
+    color: orange;
+
+    .c {
+      color: yellow;
+
+      @at-root .d {
+        color: green;
+      }
+    }
+  }  
+}

@@ -1,0 +1,199 @@
+$btn-default-color:              #6a6f7a;
+$btn-default-bg:                 #fff;
+$btn-default-border:             #dce4e6;
+
+$btn-cancel-color:              #636870;
+$btn-cancel-bg:                 #d5d8da;
+$btn-cancel-border:             #d5d8da;
+
+$btn-primary-color:              #fff;
+$btn-primary-bg:                 #09bcbc;
+$btn-primary-border:             #09bcbc;
+
+$btn-type: hover, active, focus;
+
+$map-btn-color: (
+  btn-primary: (
+    normal: (
+      color: $btn-primary-color
+    ),
+    hover: (
+      color: #fff,
+      background-color: #1aad9f,
+      border-color: #1aad9f
+    ),
+    active: (
+      color: #fff,
+      background-color: #09a3a3,
+      border-color: #09a3a3
+    ),
+    focus: (
+      color: #fff,
+      background-color: #09a3a3,
+      border-color: #09a3a3
+    ),
+    disable: (
+      color: #6a6f7a,
+      background-color: #edf1f2,
+      border-color: #edf1f2
+    )
+  ),
+  btn-default: (
+    normal: (
+      color: $btn-default-color,
+    ),
+    hover: (
+      color: #09bcbc,
+      background-color: #fff,
+      border-color: #09bcbc
+    ),
+    active: (
+      color: #6a6f7a,
+      background-color: #fff,
+      border-color: #dce4e6
+    ),
+    focus: (
+      color: #09bcbc,
+      background-color: #fff,
+      border-color: #09bcbc
+    ),
+    disable: (
+      color: #6a6f7a,
+      background-color: #edf1f2,
+      border-color: #edf1f2
+    )
+  ),
+  btn-cancel: (
+    normal: (
+      color: $btn-cancel-color,
+    ),
+    hover: (
+      color: #636870,
+      background-color: #c9d1d4,
+      border-color: #c9d1d4
+    ),
+    active: (
+      color: #636870,
+      background-color: #c1c7c9,
+      border-color: #c1c7c9
+    ),
+    focus: (
+      color: #636870,
+      background-color: #c1c7c9,
+      border-color: #c1c7c9,
+    ),
+    disable: (
+      color: #6a6f7a,
+      background-color: #edf1f2,
+      border-color: #edf1f2
+    )
+  )
+);
+
+
+/*
+map-get($map,$key)：根据给定的key值，返回map中相关的值。
+map-keys($map)：返回map中所有的key。
+map-values($map)：返回map中所有的value。
+*/
+
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  @each $key-outer, $color-outer in $map-btn-color {
+    //@debug $color-outer;
+    $color-normal : map-get($color-outer, normal);
+    //@debug $color-normal;
+    
+    /* Get button style according to the font color */
+    //@debug map-get($color-normal, color);
+    @if map-get($color-normal, color) == $color {
+      //@debug $color-outer;
+      @each $type in $btn-type {
+        //@debug map-get($color-outer, $type);
+        $color-clickable : map-get($color-outer, $type);
+
+        /* Get action style according to the type */
+        &:#{$type} {
+          background-color: map-get($color-clickable, background-color);
+          border-color: map-get($color-clickable, border-color);
+          color: map-get($color-clickable, color);
+          box-shadow: none;
+          outline: 0;
+        }
+      }
+      $color-disable: map-get($color-outer, disable);
+      /* Define disabled button style */
+      &.disable {
+        background-color: map-get($color-disable, background-color);
+        border-color: map-get($color-disable, border-color);
+        color: map-get($color-disable, color);
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.btn-default {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+}
+
+
+
+
+
+
+/* map-has-key($map,$key)：根据给定的key值判断map是否有对应的value值，如果有返回true，否则返回 false。 */
+$social-colors: (
+    dribble: #ea4c89,
+);
+@function colors($color){
+    @if not map-has-key($social-colors,$color){
+        @warn "No color found for `#{$color}` in $social-colors map. Property omitted.";
+    }
+    @return map-get($social-colors,$color);
+}
+.btn-dribble {
+    color: colors(dribble);
+}
+.btn-weibo {
+    color: colors(weibo);
+}
+
+/* 
+map-merge($map1,$map2)：将两个map合并成一个新的map。
+map-remove($map,$key)：从map中删除一个key，返回一个新map。
+*/
+$color: (
+    text: #f36,
+    link: #f63,
+    border: #ddd,
+    backround: #fff
+);
+$typo:(
+    font-size: 12px,
+    line-height: 1.6
+);
+//@debug map-merge($color,$typo);
+//@debug map-remove($color,text);
+
+/*
+keywords($args) 函数可以说是一个动态创建 map 的函数。
+可以通过混合宏或函数的参数变创建 map。
+参数也是成对出现，其中 $args 变成 key(会自动去掉$符号)，而 $args 对应的值就是value。
+*/
+@mixin map($args...){
+    @debug keywords($args);
+}
+
+@include map(
+  $dribble: #ea4c89,
+  $facebook: #3b5998,
+  $github: #171515,
+  $google: #db4437,
+  $twitter: #55acee
+);
+
+/* DEBUG: (dribble: #ea4c89, facebook: #3b5998, github: #171515, google: #db4437, twitter: #55acee) */

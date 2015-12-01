@@ -1,0 +1,25 @@
+/* 列表函数主要包括一些对列表参数的函数使用
+length($list)：返回一个列表的长度值；
+nth($list, $n)：返回一个列表中指定的某个标签值, $n 必须是大于 0 的整数
+join($list1, $list2, [$separator])：将两个列给连接在一起，变成一个列表,只能两个,可以多个join,$separator有comma和space两个值；
+append($list1, $val, [$separator])：将某个值放在列表的最后；
+zip($lists…)：将几个列表结合成一个多维的列表；
+index($list, $value)：返回一个值在列表中的位置值,不存在是false。
+
+ */
+$digtal-list1: percentage, round, ceil, floor;
+$digtal-list2: abs, min, max, random, blue, red;
+$val: percentage;
+
+.list-function-style {
+    //函数中的列表参数之间使用空格隔开，不能使用逗号，否则函数将会出错
+    /* size: length(percentage, round, ceil, floor); */
+    content: $digtal-list1;
+    size: length($digtal-list1);
+    content: quote(nth($digtal-list1, 1));
+    size: index($digtal-list1, $val);
+    content: join($digtal-list1, $digtal-list2);
+    content: join(($digtal-list1), join($digtal-list2,$val));
+    content: append($digtal-list1, $val);
+    content: zip($digtal-list1, $digtal-list2);
+}
