@@ -1,0 +1,12 @@
+/*@keyframes my
+{
+  0%   {background: red;}
+  25%  {background: yellow;}
+  50%  {background: blue;}
+  100% {background: green;}
+}
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+  animation: my 5s;
+}
+*/

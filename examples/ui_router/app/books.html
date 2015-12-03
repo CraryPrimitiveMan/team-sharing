@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="span3">
+    <div class="pa-sidebar well well-small">
+      <ul class="nav nav-list">
+        <li><a ui-sref="books.list">All Books</a></li>
+        <li ng-repeat="book in books" ui-sref-active="active">
+          <a ui-sref="books.detail({bookId : book.id})">{{book.name}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <button class="btn" ng-click="changeBook()">Show random book</button>
+
+    <hr>
+
+    <div ui-view="bookInfo" class="slide"></div>
+  </div>
+
+  <!-- for nested -->
+  <div ui-view class="span9 slide"></div>
+</div>

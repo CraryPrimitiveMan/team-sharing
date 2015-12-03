@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="vender/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <title>!</title>
+  </head>
+  <body ng-app="app">
+    <header class="navbar navbar-static-top bs-docs-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <a ui-sref="home" class="navbar-brand">Home</a>
+        </div>
+
+        <nav class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a ui-sref="books.list">Books</a></li>
+            <li><a ui-sref="about">About</a></li>
+          </ul>
+        </nav>
+
+        <!-- override -->
+        <p ui-view="hint" class="navbar-text pull-right"></p>
+      </div>
+    </header>
+
+    <div class="container slide">
+      <p>Current State : {{currentState}}</p>
+      <p>To State : {{toState}}</p>
+      <p>From State : {{fromState}}</p>
+      <p>To Params : {{toParams}}</p>
+      <p>From Params : {{fromParams}}</p>
+    </div>
+
+    <div ui-view class="container slide"></div>
+
+    <!-- begin build -->
+    <script src="vender/angular/angular.js"></script>
+    <script src="vender/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="vender/angular-animate/angular-animate.js"></script>
+    <script src="vender/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+    <script src="app.js"></script>
+    <script src="bookService.js"></script>
+    <!-- end build -->
+  </body>
+</html>

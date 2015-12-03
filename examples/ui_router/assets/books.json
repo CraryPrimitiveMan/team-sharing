@@ -1,0 +1,54 @@
+{
+  "books" : [
+    {
+      "id": 1,
+      "name": "book 1",
+      "items": [
+        {
+          "type": "IT",
+          "price": "$1"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "book 2",
+      "items": [
+        {
+          "type": "Software develop",
+          "price": "$2"
+        }
+      ]
+    },
+    {
+      "id": 123,
+      "name": "book 3",
+      "items": [
+        {
+          "type": "Website develop",
+          "price": "$3"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "book 4",
+      "items": [
+        {
+          "type": "Sing song",
+          "price": "$313"
+        }
+      ]
+    },
+    {
+      "id": 222,
+      "name": "book 22",
+      "items": [
+        {
+          "type": "Basketball",
+          "price": "$111"
+        }
+      ]
+    }
+  ]
+}

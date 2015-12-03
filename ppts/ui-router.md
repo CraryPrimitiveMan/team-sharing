@@ -10,7 +10,20 @@ transition: cards
 
 [slide]
 
+### <p style="text-align: left;">The de-facto solution to flexible routing with nested views</p>
+
+----
+
+<p style="text-align: left;">AngularUI Router is a routing framework for AngularJS(**angular-ui-router基于angular**), which allows you to organize the parts of your interface into a state machine. Unlike the $route service in Angular core, which is organized around URL routes, UI-Router is organized around states, which may optionally have routes, as well as other behavior, attached.(**angular-ui-router是基于state进行**)
+<br>
+States are bound to named, nested and parallel views, allowing you to powerfully manage your application's interface.(**state可以进行命名**)</p>
+
+
+[slide]
+
 ### The majority of UI-Router's power
+
+----
 
 <br>
 
@@ -79,7 +92,48 @@ UI-ROUTER的路由
 
 * template / templateUrl / templateProvider
 * controller(controller会进行依赖注入，注入已存在的服务，或者resolve的返回值)
-* resolve(预注入服务或者数据)
+* resolve(预注入服务或者数据,resolve需要和controller一起使用,如果resolve传入的是一个函数,那么这个函数的返回值会被解析成一个promise对象,并在controller实例化之前被注入到controller内,所以可以在controller内随意使用)
+
+[slide]
+
+### Promise对象
+
+----
+
+<pre style="float: left; width: 400px; height: 400px; background: #23241f; color: #fff;">
+ajax({
+    url: url1,
+    success: function(data) {
+        ajax({
+            url: url2,
+            data: data,
+            success: function() {
+            	//todo
+            }
+        });
+    }
+});
+</pre>
+
+<pre style="float: right; width: 400px; height: 400px; background: #23241f; color: #fff;">
+function A() {
+    ajax({
+        url: url1,
+        success: function(data) {
+            B(data);
+        }
+    });
+}
+
+function B(data) {
+    ajax({
+        url: url2,
+        success: function(data) {
+            //todo
+        }
+    });
+}
+</pre>
 
 [slide]
 
@@ -218,7 +272,7 @@ $stateProvider
 
 [slide]
 
-其实views配置的就是类似 viewname + @ + statename　的状态(line 2235)，其中viewname是指ui-view="?"中?的内容，不填的话就是""，statename是父级state的name，因为子路由一般都是放在父级路由的ui-view中，理解一下就是该视图会被放在statename路由下的viewname模板中．　{:.flexbox.vleft}
+其实views配置的就是类似 viewname + @ + statename　的状态(line 2235)，其中viewname是指ui-view="?"中?的内容，不填的话就是""，statename是父级state的name，子路由放在父级路由的ui-view中，理解一下就是该视图会被放在statename路由下的viewname模板中．　{:.flexbox.vleft}
 
 [slide]
 
@@ -287,13 +341,13 @@ $stateProvider
 
 ----
 
-<ul style="text-align: left; font-size: 16px;">
+<ul style="text-align: left; font-size: 1８px;">
 	<li>Registering States Order：当然angular注册路由的顺序并没有什么要求，因为如果先注册的是子路由，而子路由的父路由还没有注册，angular会先将该子路由缓存起来的(line 2314).</li>
-    <li>Parent MUST Exist</li>
-    <li>Child actived then parent actived：子状态被激活，父状态会被隐式的激活，Child states将会load它的template嵌入到parent的ui-view中.</li>
+    <li>Parent MUST Exist(View code)</li>
+    <li>Child actived then parent actived：子状态被激活，父状态会被隐式的激活，Child states将会load它的template嵌入到parent的ui-view中.(View code)</li>
 </ul>
 
-----
+[slide]
 
 | ngRoute | ui.router |
 |---------|:----------|
@@ -301,6 +355,13 @@ $stateProvider
 | $route | $state / $urlRouter| 服务 |
 | $routeParams | $stateParams | 获取路由中携带的参数 |
 | ng-view | ui-view | 视图调用 |
+
+----
+
+$state服务负责表示路由状态,并且在状态之间transitioning,还提供了能够访问前后路由传递状态的api
+$urlRouter服务负责监视$location,当$location变化的时候,回去遍历rules,直到有一个匹配
+$stateProvider提供了一系列的方法用来配置路由
+$urlRouterProvider常在$stateProvider最后配置出一个重定向的state
 
 [slide]
 
@@ -316,11 +377,12 @@ $stateProvider
 
 [slide]
 
-### 模板渲染
+### 模板渲染 - 路由解析
 
 ----
 
 <ul style="text-align: left; font-size: 18px; margin-top: 20px;">
+	<li>创建并存储一个state对象，然后调用$urlRouterProvider进行路由注册(line 2314)，这个里面创建一个rule，将路由信息存在rule内，以后每次查找就从这个rule内去遍历了</li>
 	<li style="margin-bottom: 20px;">angular在digest循环开始时候会去监听$stateChangeSuccess事件(line 3920)，当state改变之后会去broadcast事件$stateChangeSuccess(line 3311)</li>
     <li style="margin-bottom: 20px;">每次路由发生变化的时候会去在rule内去搜索，匹配到(line 1877)对应的路由规则</li>
     <li style="margin-bottom: 20px;">通过调用$state.transitionTo()跳转激活对应的state(line 3067可以发现我们可以使用$state.go()进行状态间的跳转，并可以传递数据)，完成数据请求和模板的渲染</li>
@@ -386,4 +448,5 @@ angular.module('ui.router.state')
 
 <p style="font-size: 24px; text-align: left;">GITHUB地址：https://github.com/angular-ui/ui-router</p>
 <p style="font-size: 24px; text-align: left;">UI-ROUTER：https://angular-ui.github.io/ui-router/#get-started</p>
+<p style="font-size: 24px; text-align: left;">UI-ROUTER-WIKI：https://github.com/angular-ui/ui-router/wiki</p>
 <p style="font-size: 24px; text-align: left;">UI-ROUTER-API：http://angular-ui.github.io/ui-router/site/#/api</p>
