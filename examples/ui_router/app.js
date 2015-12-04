@@ -1,11 +1,13 @@
 angular.module('app', [
   'ui.router',
   'ngAnimate',
-  /* ui.bootstrap depends on ngAnimate */
   'ui.bootstrap'
 ])
-.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+
+.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
+
+
     /*
       Allow you to extends or override the stateBuilder
       http://angular-ui.github.io/ui-router/site/#/api/ui.router.state.$stateProvider
@@ -14,7 +16,6 @@ angular.module('app', [
       var result = {}, views = parent(state);
 
       angular.forEach(views, function (config, name) {
-        // console.log(config);
 
         if (config.templateUrl) {
           config.templateUrl = 'app/' + config.templateUrl;
@@ -29,13 +30,14 @@ angular.module('app', [
     .state('home', {
       /* Default view */
       url: '/home',
+      template: '<ui-view></ui-view>',
       controller: ['$state', function ($state) {
         $state.go('home.homeChild');
       }],
-      /* Data can be override */
+      /* Data will be inherited by its child state */
       data: {
-        'name': '！！！！！！',
-        'gender': 'boy'
+        'name': 'I am gary',
+        'gender': 'man'
       },
       onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
         $uibModal.open({
@@ -62,12 +64,16 @@ angular.module('app', [
     .state('home.homeChild', {
       templateUrl: 'home-child.html',
       controller: ['$scope', '$state', function ($scope, $state) {
+        /* Only parent data can be inherited */
         $scope.homeData = $state.current.data;
       }]
     })
 
+    /* line 599 */
     .state('about', {
       url: '/about',
+      templateUrl: 'test.html',
+      template: 'From template config',
       /* A function to return html */
       templateProvider: function ($timeout) {
         return $timeout(function () {
@@ -78,6 +84,7 @@ angular.module('app', [
     })
 
     .state('books', {
+      /* never be actived directly if property abstract is true */
       abstract: true,
       url: '/books',
       templateUrl: 'books.html',
@@ -86,6 +93,7 @@ angular.module('app', [
         books: ['books', function (books) {
           return books.all();
         }],
+
         /* custom made promise */
         greeting: ['$q', function ($q) {
           var deferred = $q.defer();
@@ -95,6 +103,7 @@ angular.module('app', [
       },
       controller: ['$scope', '$state', 'books', 'greeting', 'util', function ($scope, $state, books, greeting, util) {
         $scope.books = books;
+        $scope.greeting = greeting;
 
         $scope.changeBook = function () {
           var bookIdList = util.getAllBookIds($scope.books);
@@ -104,6 +113,7 @@ angular.module('app', [
       }]
     })
 
+    /* If child state is actived then its parent state is actived too! */
     .state('books.list', {
       /* If we use '' as url, it means '/books' + ''
        * parent's url + itself's url
@@ -150,14 +160,18 @@ angular.module('app', [
     });*/
 
     $urlRouterProvider.otherwise('/home');
+
+    $locationProvider.html5Mode(true).hashPrefix();
 }])
 
-.run(['$rootScope', '$state', function ($rootScope, $state) {
+.run(['$rootScope', '$state', '$location', function ($rootScope, $state, $location) {
   $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
     $rootScope.currentState = $state.current.name;
     $rootScope.toState = toState;
     $rootScope.toParams = toParams;
     $rootScope.fromState = fromState;
     $rootScope.fromParams = fromParams;
+
+    console.log($location.hash());
   });
 }]);

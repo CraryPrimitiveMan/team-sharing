@@ -1,6 +1,6 @@
-<h2>All Books</h2>
+<h2>All Books(Template from book-list)</h2>
 <ul>
   <li ng-repeat="book in books">
-    <a ui-sref="books.detail({bookId : book.id})">{{book.name}}</a>
+    <a ui-sref="books.detail({bookId : book.id, greeting: 'Click template from book-list ' + book.id})">{{book.name}}</a>
   </li>
 </ul>

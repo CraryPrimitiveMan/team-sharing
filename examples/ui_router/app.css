@@ -10,3 +10,7 @@
   animation: my 5s;
 }
 */
+
+.sref-active:hover {
+  color: #FF0000;
+}

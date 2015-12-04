@@ -10,6 +10,14 @@ transition: cards
 
 [slide]
 
+### 前言
+
+----
+
+<p style="font-size: 16px; text-align: left;">任何一个MVC(MVVM)框架,无论是前端还是后端都有一套适合自身的路由规则.AngularJs原生的路由规则是: ngRouter,使用起来极其方便.但是随着单页面应用的需求不断扩大,ngRouter已经不能满足很多情况,比如它不能实现多视图,不能实现视图的嵌套等等,缺点逐渐被暴露.ngRouter开发团队(准确的说是angular开发团队)基于状态的方式重新实现了ngRouter,并将其从angular中提取出写成了单独的模块,依赖于angular,使用者可以根据需求安装ui-router.</p>
+
+[slide]
+
 ### <p style="text-align: left;">The de-facto solution to flexible routing with nested views</p>
 
 ----
@@ -146,7 +154,7 @@ function B(data) {
 * views：多视图的时候使用．
 * onEnter / onExit：angular会在进入视图和离开视图的时候调用这些回调函数，比如进入一个视图的时候弹出一个模态框，提示一些信息．
 * abstract(boolean)：如果被设置为true，意味着这个视图永远不能被直接active，只能当它的子状态被active的时候被间接active．
-* data：和resolve类似，但是它不会被注入到controller内，一般用于父状态向子状态传递数据的时候使用，在子状态获取这些数据的常用方式是＇$state.current.data＇．
+* data：和resolve类似，但是它不会被注入到controller内，用于父状态向子状态传递数据，在子状态获取这些数据的常用方式是＇$state.current.data＇.**(Issue: angular-ui-router源码中明确写到,data属性从父级的state继承而来,并且可以override这些data,反之是不可以的!见源码line 2191)**
 
 [slide]
 
@@ -358,10 +366,10 @@ $stateProvider
 
 ----
 
-$state服务负责表示路由状态,并且在状态之间transitioning,还提供了能够访问前后路由传递状态的api
-$urlRouter服务负责监视$location,当$location变化的时候,回去遍历rules,直到有一个匹配
-$stateProvider提供了一系列的方法用来配置路由
-$urlRouterProvider常在$stateProvider最后配置出一个重定向的state
+* $state服务负责表示路由状态,并且在状态之间transitioning,还提供了能够访问前后路由传递状态的api
+* $urlRouter服务负责监视$location,当$location变化的时候,回去遍历rules,直到有一个匹配
+* $stateProvider提供了一系列的方法用来配置路由
+* $urlRouterProvider常在$stateProvider最后配置出一个重定向的state
 
 [slide]
 
@@ -439,6 +447,26 @@ angular.module('ui.router.state')
 ----
 
 <p style="font-size: 16px; text-align: left;">在state变化之后都会触发$locationChangeSuccess事件，继而触发回调，传统的href则会触发遍历rules以寻找state，这样会影响性能；而ui-sref会去check，如果是手动触发的方式则会直接return(line 1999).</p>
+
+[slide]
+
+### 关于使用HTML5模式的url
+
+<p style="font-size: 16px; text-align: left;">angular中$location服务能够对url处理,有2种路由模式</p>
+
+* 一种是默认的hash模式,其表现形式是url中能看到 : ui-router/site/#/api/ui.router 的'#',源码line 2113中有默认的设置.
+* 一种是html5模式,利用$locationProvider.html5Mode(true),去设置此模式.
+
+$location服务内提供了对浏览器回退api的封装
+
+[slide]
+
+### 总结
+
+----
+
+* 时刻记住: ui-router是基于状态的路由管理,ngRouter是基于url的
+
 
 [slide]
 

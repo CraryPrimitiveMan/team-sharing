@@ -5,27 +5,30 @@
     <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
     <link rel="stylesheet" type="text/css" href="vender/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="app.css">
+
+    <!-- set base url in app if your app base url i scurrent path, do not set this else set -->
+    <base href="/demo_ui_router/"></base>
     <title>!</title>
   </head>
   <body ng-app="app">
     <header class="navbar navbar-static-top bs-docs-nav">
       <div class="container">
-        <div class="navbar-header">
-          <a ui-sref="home" class="navbar-brand">Home</a>
-        </div>
-
         <nav class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a ui-sref="books.list">Books</a></li>
-            <li><a ui-sref="about">About</a></li>
+            <li><a ui-sref="home" ui-sref-active="sref-active">Home</a></li>
+            <li><a ui-sref="books.list" ui-sref-active="sref-active">Books</a></li>
+            <li><a ui-sref="about" ui-sref-active="sref-active">About</a></li>
           </ul>
         </nav>
 
         <!-- override -->
-        <p ui-view="hint" class="navbar-text pull-right"></p>
+        <p ui-view="hint" class="navbar-text"></p>
       </div>
     </header>
 
+    <div ui-view class="container slide"></div>
+
+    <!--
     <div class="container slide">
       <p>Current State : {{currentState}}</p>
       <p>To State : {{toState}}</p>
@@ -33,8 +36,7 @@
       <p>To Params : {{toParams}}</p>
       <p>From Params : {{fromParams}}</p>
     </div>
-
-    <div ui-view class="container slide"></div>
+    -->
 
     <!-- begin build -->
     <script src="vender/angular/angular.js"></script>
