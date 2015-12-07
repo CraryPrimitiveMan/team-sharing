@@ -11,22 +11,29 @@ theme:black
 
 [slide data-transition="horizontal3d"]
 ## 简 介
-
 + Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架.
 + Bootstrap 使用到的某些 HTML 元素和 CSS 属性需要将页面设置为 HTML5 文档类型。
 + Bootstrap 是移动设备优先的,支持响应式的布局.
 
 [slide data-transition="horizontal3d"]
+##基本要素
++ Html5文档类型：<!DOCTYPE html>
++ 支持响应式布局：&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
++ 默认最高版本IE模式渲染：&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+
+[slide data-transition="horizontal3d"]
 ##栅格系统
   + 通过一系列的行与列的组合来创建页面布局,一行最多12列.
-  + 100%宽度 .container-fluid
-  + 固定宽度布局 .container 
-  + 行 .row 
+  + 100%宽度 .container-fluid  ,固定宽度布局 .container 
+  + 行 .row必须放置在 .container class 内，以便获得适当的对齐和内边距
+  + 内容应该放置在列内，且唯有列可以是行的直接子元素。
   + .col-lg-* 大屏幕 大桌面显示器 (≥1200px)
   + .col-md-* 中等屏幕 桌面显示器 (≥992px)
   + .col-sm-* 小屏幕 平板 (≥768px)
   + .col-xs-* 超小屏幕 手机 (<768px)
-  + .col-md-offset-* 列偏移
+  + 列偏移 .col-md-offset-*
+  + 列排序 .col-md-push-* .col-md-pull-*
+  + 嵌套列 在column中再嵌套一个row
   + 如果一行中包含了的列大于12，多余的列所在的元素将被作为一个整体另起一行排列。
 
 [slide data-transition="horizontal3d"]
@@ -41,6 +48,15 @@ theme:black
   + 内联代码： &lt;code&gt;
   + 代码块： &lt;pre&gt;  
   + 固定高度垂直方向滚动：.pre-scrollable
+
+[slide data-transition="horizontal3d"]
+##表 格
+ + 基本表格: .table 
+ + 条纹状表格: .table-striped
+ + 带边框表格: .table-bordered
+ + 鼠标悬停: .table-hover
+ + 表格紧缩: .table-condensed
+ + 响应式表格: .table-responsive,会在小屏幕设备上（小于768px）水平滚动,当屏幕大于 768px 宽度时，水平滚动条消失.
 
 [slide data-transition="horizontal3d"]
 ##表 单
@@ -70,26 +86,69 @@ theme:black
  + mixin: img-responsive($display: block)
 
 [slide data-transition="horizontal3d"]
+## 响应式的嵌入式网页元素
+ + 根据被嵌入内容的外部容器的宽度，自动创建一个固定的比例，从而让浏览器自动确定视频的尺寸，能够在各种设备上缩放。
+ + 应用在 &lt;iframe&gt;、&lt;embed&gt;、&lt;video&gt; 和 &lt;object&gt; 元素上。
+ + 响应式样式：.embed-responsive
+ + 高宽比：.embed-responsive-16by9  .embed-responsive-4by3
+
+[slide data-transition="horizontal3d"]
 + .clearfix .pull-left .pull-right .center-block .hide .show  .hidden .invisible
 + .text-left .text-right .text-center .text-justify .text-nowrap .text-lowercase .text-uppercase .text-capitalize
 + mixin: 
  + 透明度:opacity(@opacity)   
  + 设置尺寸: size(@width @height)   square(@size)    
  + 截断文本(用省略号代替): text-overflow() 
- + 圆角： 
-   + border-top-radius(@radius) 
-   + border-bottom-radius(@radius) 
-   + border-right-radius(@radius) 
-   + border-left-radius(@radius) 
+ + 隐藏文本(不是去除此元素): text-hide() hide-text()
+ + 重置文本样式: reset-text()
+ + 定义某一颜色label: label-variant($color)
+ + 定义某一颜色文本: text-emphasis-variant($parent, $color)
+ + 定义某一颜色背景: bg-variant($parent, $color)
 
 [slide data-transition="horizontal3d"]
++ 圆角： 
+  + border-top-radius(@radius) 
+  + border-bottom-radius(@radius) 
+  + border-right-radius(@radius) 
+  + border-left-radius(@radius) 
 + 占位符文本颜色：placeholder(@color: @input-color-placeholder)
++ 连字符断行：hyphens($mode: auto)
 + 关闭按钮：&lt;button type="button" class="close" &gt;&times;&lt;/button&gt;
-+ 除此之外，bootstrap还提供了许多可复用的组件，如字体图标，面包屑，面板，警告框等。
+
+[slide data-transition="horizontal3d"]
+##Bootstrap 组件
++ bootstrap还提供了许多可复用的组件
+  + 字体图标
+  + 徽章 .badge
+  + 缩略图 .thumbnail
   + 面包屑: .breadcrumb
   + 面板: .panel .panel-default
+  + 分页： .pagination
+  + 警告框： .alert .alert-success .alert-danger role="alert"
 
 [slide data-transition="horizontal3d"]
-#Thanks
+##JS插件
++ JavaScript 插件可以单个引入（使用 Bootstrap 提供的单个 *.js 文件），或者一次性全部引入（使用 bootstrap.js 或压缩版的 bootstrap.min.js）
++ 所有插件都依赖 jQuery，jQuery必须在所有插件之前引入页面。
++ 常用的bootstrap插件:
+  + Modal用法： 
+    + 通过data属性：在控制器按钮上添加属性 data-toggle="modal" data-target="#myModal"
+    + 通过js调用： $('#myModal').modal(options); options: show hide toggle
+
+[slide data-transition="horizontal3d"]
+  + Tooltip(工具提示)和PopOver(弹出框)比较：
+    + 弹出框依赖于工具提示,所以使用弹出框，必须先引入工具提示的js。
+    + 都必须手动初始化
+      + $('[data-toggle="tooltip"]').tooltip();
+      + $('[data-toggle="popover"]').popover();
+    + 用法:
+      + 通过data属性：data-toggle="tooltip" data-toggle="popover" data-placement=""
+      + 通过js调用：$('#example').tooltip(options)；$('#example').popover(options)；
+
+[slide data-transition="horizontal3d"]
+##相关链接
+  + Bootstrap中文网站：http://v3.bootcss.com/
+  + Github地址：https://github.com/twbs/bootstrap-sass
+
 
 
