@@ -118,7 +118,7 @@
          * parent's url + itself's url
          * when the user tries to go to 'books', it will automatically go to 'books.list'.
          */
-        url: '',
+        url: '/list',
         views: {
           '': {
             templateUrl: 'book-list.html'
@@ -130,7 +130,8 @@
       })
 
       .state('books.detail', {
-        url: '/:greeting/{bookId:[0-9]{1,4}}',
+        /* can transition params like this */
+        url: '/detail?greeting&bookId',
         views: {
           '': {
             templateUrl: 'book-detail.html',
