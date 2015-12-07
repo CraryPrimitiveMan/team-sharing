@@ -1,24 +1,44 @@
-angular.module('app')
-  .factory('books', ['$http', function ($http) {
+(function () {
+  angular.module('app')
+    .factory('books', BooksInfo)
 
-    var books = $http({method: 'GET', url: 'assets/books.json'})
-      .then(function (resp) {
-        /* return promise */
-        return resp.data.books;
-    });
+    .factory('util', BooksUtil);
 
-    var factory = {};
+    /* Inject depends */
+    BooksInfo.$injector = ['$http'];
 
-    factory.all = function () {
-      return books;
-    };
+    /**
+     * Get all books info
+     * @param  $http
+     * @return factory
+     */
+    function BooksInfo($http) {
+      var books = $http({method: 'GET', url: 'assets/books.json'})
+        .then(function (resp) {
+          /* return promise */
+          return resp.data.books;
+      });
 
-    return factory;
-  }])
+      var factory = {};
 
-  .factory('util', function () {
-    return {
-      getById: function getById(origin, id) {
+      factory.all = function () {
+        return books;
+      };
+
+      return factory;
+    }
+
+    /**
+     * Books utils
+     * @return function getById and getAllBooksIds
+     */
+    function BooksUtil() {
+      return {
+        getById: getById,
+        getAllBookIds: getAllBookIds
+      };
+
+      function getById(origin, id) {
         for (var i = 0; i < origin.length; i++) {
           if (origin[i].id == id) {
             return origin[i];
@@ -26,9 +46,9 @@ angular.module('app')
         }
 
         return null;
-      },
+      }
 
-      getAllBookIds: function getAllBookIds(origin) {
+      function getAllBookIds(origin) {
         var res = [];
 
         for (var i = 0; i < origin.length; i++) {
@@ -37,5 +57,5 @@ angular.module('app')
 
         return res;
       }
-    };
-  });
+    }
+})();
