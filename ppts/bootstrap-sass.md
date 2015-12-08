@@ -3,7 +3,7 @@ speaker: Grace Mao
 url: https://github.com/ksky521/nodePPT
 transition: cards
 files: /js/demo.js,/css/demo.css
-theme:black
+theme:moon
 [slide]
 
 # Bootstrap 的sass实现
@@ -11,29 +11,24 @@ theme:black
 
 [slide data-transition="horizontal3d"]
 ## 简 介
-+ Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架.
-+ Bootstrap 使用到的某些 HTML 元素和 CSS 属性需要将页面设置为 HTML5 文档类型。
-+ Bootstrap 是移动设备优先的,支持响应式的布局.
-
-[slide data-transition="horizontal3d"]
-##基本要素
-+ Html5文档类型：<!DOCTYPE html>
-+ 支持响应式布局：&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-+ 默认最高版本IE模式渲染：&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
++ Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架，它的源码是基于最流行的CSS 预处理脚本-Less和Sass开发的。
++ Bootstrap 使用到的某些 HTML 元素和 CSS 属性需要将页面设置为 HTML5 文档类型。(<!DOCTYPE html>)
++ Bootstrap 是移动设备优先的,支持响应式的布局。
+  + &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
 
 [slide data-transition="horizontal3d"]
 ##栅格系统
   + 通过一系列的行与列的组合来创建页面布局,一行最多12列.
-  + 100%宽度 .container-fluid  ,固定宽度布局 .container 
-  + 行 .row必须放置在 .container class 内，以便获得适当的对齐和内边距
-  + 内容应该放置在列内，且唯有列可以是行的直接子元素。
-  + .col-lg-* 大屏幕 大桌面显示器 (≥1200px)
-  + .col-md-* 中等屏幕 桌面显示器 (≥992px)
-  + .col-sm-* 小屏幕 平板 (≥768px)
-  + .col-xs-* 超小屏幕 手机 (<768px)
-  + 列偏移 .col-md-offset-*
-  + 列排序 .col-md-push-* .col-md-pull-*
-  + 嵌套列 在column中再嵌套一个row
+  + 100%宽度布局 .container-fluid  ,响应式的固定宽度布局 .container 
+  + 行 .row，行必须放置在容器内，以便获得适当的对齐和内边距
+  + 响应式的column
+    + .col-lg-* 大屏幕 大桌面显示器 (≥1200px)
+    + .col-md-* 中等屏幕 桌面显示器 (≥992px)
+    + .col-sm-* 小屏幕 平板 (≥768px)
+    + .col-xs-* 超小屏幕 手机 (<768px)
+    + 列偏移 .col-md-offset-*：实际上是设置了margin
+    + 列排序 .col-md-push-* .col-md-pull-*:本质上是通过left或right设置了位置
+    + 嵌套列 在column中再嵌套一个row
   + 如果一行中包含了的列大于12，多余的列所在的元素将被作为一个整体另起一行排列。
 
 [slide data-transition="horizontal3d"]
@@ -43,11 +38,14 @@ theme:black
   + 无样式列表: .list-unstyled  
   + 内联列表: .list-inline   
   + 水平列表: .dl-horizontal
+  + .text-left .text-right .text-center .text-justify .text-nowrap 
+  + .text-lowercase .text-uppercase .text-capitalize
 
 ##代 码
   + 内联代码： &lt;code&gt;
   + 代码块： &lt;pre&gt;  
   + 固定高度垂直方向滚动：.pre-scrollable
+  + 注意代码中尖括号做转义处理
 
 [slide data-transition="horizontal3d"]
 ##表 格
@@ -65,7 +63,7 @@ theme:black
   + 内联单选框.radio-inline  
   + 内联多选框.checkbox-inline  
  + 静态控件：.form-control-static,当在表单中需将一行纯文本和label元素放置于同一行，为&lt;p&gt; 元素添加 .form-control-static 类。
- + 水平表单：.form-horizontal   
+ + 水平表单：.form-horizontal 
 
 [slide data-transition="horizontal3d"]
 ##按 钮
@@ -93,8 +91,8 @@ theme:black
  + 高宽比：.embed-responsive-16by9  .embed-responsive-4by3
 
 [slide data-transition="horizontal3d"]
+##实用的样式和mixin
 + .clearfix .pull-left .pull-right .center-block .hide .show  .hidden .invisible
-+ .text-left .text-right .text-center .text-justify .text-nowrap .text-lowercase .text-uppercase .text-capitalize
 + mixin: 
  + 透明度:opacity(@opacity)   
  + 设置尺寸: size(@width @height)   square(@size)    
@@ -112,8 +110,7 @@ theme:black
   + border-right-radius(@radius) 
   + border-left-radius(@radius) 
 + 占位符文本颜色：placeholder(@color: @input-color-placeholder)
-+ 连字符断行：hyphens($mode: auto)
-+ 关闭按钮：&lt;button type="button" class="close" &gt;&times;&lt;/button&gt;
+
 
 [slide data-transition="horizontal3d"]
 ##Bootstrap 组件
@@ -125,6 +122,7 @@ theme:black
   + 面板: .panel .panel-default
   + 分页： .pagination
   + 警告框： .alert .alert-success .alert-danger role="alert"
+  + 关闭按钮：&lt;button type="button" class="close" &gt;&times;&lt;/button&gt;
 
 [slide data-transition="horizontal3d"]
 ##JS插件
@@ -143,12 +141,14 @@ theme:black
       + $('[data-toggle="popover"]').popover();
     + 用法:
       + 通过data属性：data-toggle="tooltip" data-toggle="popover" data-placement=""
-      + 通过js调用：$('#example').tooltip(options)；$('#example').popover(options)；
+      + 通过js调用：$('#example').tooltip(options)；$('#example').popover(options)； options: show hide 
 
 [slide data-transition="horizontal3d"]
 ##相关链接
-  + Bootstrap中文网站：http://v3.bootcss.com/
+  + Bootstrap英文官网：http://getbootstrap.com/
+  + Bootstrap中文官网：http://www.bootcss.com/
   + Github地址：https://github.com/twbs/bootstrap-sass
+  + 优站精选：http://http://expo.bootcss.com/
 
 
 
