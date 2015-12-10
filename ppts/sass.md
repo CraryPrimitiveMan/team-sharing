@@ -32,9 +32,9 @@ url: ../md/sass.md
 
 [slide style="background-image:url('/img/bg1.png'); color: #000;"]
 # Sass有两种后缀名(Sass、Scss)
-* 主要区别在书写格式上 
+* 主要区别在书写格式上
     * sass文件是缩进式的写法，没有括号, 对格式要求比较严谨，末尾不能有分号
-    * scss文件的写法和css一致 
+    * scss文件的写法和css一致
 * Sass与Scss之间的转换
     * 将Sass转换为Scss: sass-convert style.sass style.scss
     * 将Scss转换为Sass: sass-convert style.scss style.sass
@@ -53,7 +53,7 @@ url: ../md/sass.md
     2. 如果文件名以 http:// 开头 => @import "http://foo.com/bar"
     3. 如果文件名是 url() => @import url(foo)
     4. 如果包含了任何媒体查询（media）=> @import "foo" screen
-* 如果你有一个 SCSS文件需要引入， 但是你又不希望它被编译为一个 CSS 文件， 这时，你就可以在文件名前面加一个下划线，像往常一样引入这个文件, 即可。_text.scss => @import 'text'
+* 前提如果我们编译监听的是文件夹, 有一个 SCSS文件需要引入， 但是你又不希望它被编译为一个 CSS 文件， 可以在文件名前面加一个下划线，像往常一样引入。_text.scss => @import 'text'
 
 
 [slide style="background-image:url('/img/bg1.png');color: #000;"]
@@ -199,7 +199,7 @@ url: ../md/sass.md
 
 [slide style="background-image:url('/img/bg1.png');color: #000;"]
 # @extend
-* 用来扩展选择器或占位符 
+* 用来扩展选择器或占位符
 * %(占位符选择器),取代以前 CSS 中的基类造成的代码冗余的情形。因为 %placeholder 声明的代码，如果不被 @extend 调用的话，不会产生任何代码。通过 @extend 调用的占位符，编译出来的代码会将相同的代码合并在一起。
 ---
 # @at-root
