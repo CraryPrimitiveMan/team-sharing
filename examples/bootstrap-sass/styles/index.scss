@@ -1,0 +1,36 @@
+@import '../assets/stylesheets/bootstrap/mixins';
+
+$bg-colors: #cbcbcb #50d7be #f5d773 #ffafbe #78d7dc #b464c8;
+$text-color: #3c763d;
+$background-color: #fff;
+$border-color: #e2e2e2;
+
+$i: 1;
+@each $color in $bg-colors {
+    .bg-#{$i} {
+        height: 50px;
+        background-color: $color;
+    }
+    $i: $i + 1;
+}
+
+
+@mixin mt($margin : 15px) {
+    .mt-#{$margin} {
+        margin-top: $margin;
+    }
+}
+
+@include mt();
+@include mt(100px);
+
+.opacity {
+    @include opacity(0.5);
+}
+
+@include text-emphasis-variant('.text-green', $text-color);
+
+.btn-example {
+    @include button-variant($text-color, $background-color, $border-color);
+}
+

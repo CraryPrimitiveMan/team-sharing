@@ -1,0 +1,90 @@
+.bg-1 {
+  height: 50px;
+  background-color: #cbcbcb;
+}
+
+.bg-2 {
+  height: 50px;
+  background-color: #50d7be;
+}
+
+.bg-3 {
+  height: 50px;
+  background-color: #f5d773;
+}
+
+.bg-4 {
+  height: 50px;
+  background-color: #ffafbe;
+}
+
+.bg-5 {
+  height: 50px;
+  background-color: #78d7dc;
+}
+
+.bg-6 {
+  height: 50px;
+  background-color: #b464c8;
+}
+
+.mt-15px {
+  margin-top: 15px;
+}
+
+.mt-100px {
+  margin-top: 100px;
+}
+
+.opacity {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.text-green {
+  color: #3c763d;
+}
+
+a.text-green:hover,
+a.text-green:focus {
+  color: #2b542c;
+}
+
+.btn-example {
+  color: #3c763d;
+  background-color: #fff;
+  border-color: #e2e2e2;
+}
+.btn-example:focus, .btn-example.focus {
+  color: #3c763d;
+  background-color: #e6e6e6;
+  border-color: #a2a2a2;
+}
+.btn-example:hover {
+  color: #3c763d;
+  background-color: #e6e6e6;
+  border-color: #c3c3c3;
+}
+.btn-example:active, .btn-example.active, .open > .btn-example.dropdown-toggle {
+  color: #3c763d;
+  background-color: #e6e6e6;
+  border-color: #c3c3c3;
+}
+.btn-example:active:hover, .btn-example:active:focus, .btn-example:active.focus, .btn-example.active:hover, .btn-example.active:focus, .btn-example.active.focus, .open > .btn-example.dropdown-toggle:hover, .open > .btn-example.dropdown-toggle:focus, .open > .btn-example.dropdown-toggle.focus {
+  color: #3c763d;
+  background-color: #d4d4d4;
+  border-color: #a2a2a2;
+}
+.btn-example:active, .btn-example.active, .open > .btn-example.dropdown-toggle {
+  background-image: none;
+}
+.btn-example.disabled, .btn-example.disabled:hover, .btn-example.disabled:focus, .btn-example.disabled.focus, .btn-example.disabled:active, .btn-example.disabled.active, .btn-example[disabled], .btn-example[disabled]:hover, .btn-example[disabled]:focus, .btn-example[disabled].focus, .btn-example[disabled]:active, .btn-example[disabled].active, fieldset[disabled] .btn-example, fieldset[disabled] .btn-example:hover, fieldset[disabled] .btn-example:focus, fieldset[disabled] .btn-example.focus, fieldset[disabled] .btn-example:active, fieldset[disabled] .btn-example.active {
+  background-color: #fff;
+  border-color: #e2e2e2;
+}
+.btn-example .badge {
+  color: #fff;
+  background-color: #3c763d;
+}
+
+/*# sourceMappingURL=index.css.map */

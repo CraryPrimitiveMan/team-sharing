@@ -1,0 +1,327 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.3.21
+3 info using node@v0.10.24
+4 verbose readDependencies using package.json deps
+5 verbose install where, deps [ '/home/user/Desktop/bootstrap-sass-3.3.5',
+5 verbose install   [ 'btoa',
+5 verbose install     'glob',
+5 verbose install     'grunt',
+5 verbose install     'grunt-autoprefixer',
+5 verbose install     'grunt-contrib-clean',
+5 verbose install     'grunt-contrib-compress',
+5 verbose install     'grunt-contrib-concat',
+5 verbose install     'grunt-contrib-connect',
+5 verbose install     'grunt-contrib-copy',
+5 verbose install     'grunt-contrib-csslint',
+5 verbose install     'grunt-contrib-cssmin',
+5 verbose install     'grunt-contrib-htmlmin',
+5 verbose install     'grunt-contrib-jade',
+5 verbose install     'grunt-contrib-jshint',
+5 verbose install     'grunt-contrib-less',
+5 verbose install     'grunt-contrib-qunit',
+5 verbose install     'grunt-contrib-uglify',
+5 verbose install     'grunt-contrib-watch',
+5 verbose install     'grunt-csscomb',
+5 verbose install     'grunt-exec',
+5 verbose install     'grunt-html',
+5 verbose install     'grunt-jekyll',
+5 verbose install     'grunt-jscs',
+5 verbose install     'grunt-saucelabs',
+5 verbose install     'grunt-sed',
+5 verbose install     'load-grunt-tasks',
+5 verbose install     'markdown-it',
+5 verbose install     'npm-shrinkwrap',
+5 verbose install     'time-grunt' ] ]
+6 info preinstall bootstrap@3.3.5
+7 verbose readDependencies using package.json deps
+8 verbose already installed skipping grunt@~0.4.5 /home/user/Desktop/bootstrap-sass-3.3.5
+9 verbose already installed skipping btoa@~1.1.2 /home/user/Desktop/bootstrap-sass-3.3.5
+10 verbose already installed skipping glob@~5.0.5 /home/user/Desktop/bootstrap-sass-3.3.5
+11 verbose already installed skipping grunt-autoprefixer@~3.0.0 /home/user/Desktop/bootstrap-sass-3.3.5
+12 verbose already installed skipping grunt-contrib-clean@~0.6.0 /home/user/Desktop/bootstrap-sass-3.3.5
+13 verbose already installed skipping grunt-contrib-compress@~0.13.0 /home/user/Desktop/bootstrap-sass-3.3.5
+14 verbose already installed skipping grunt-contrib-concat@~0.5.1 /home/user/Desktop/bootstrap-sass-3.3.5
+15 verbose already installed skipping grunt-contrib-connect@~0.10.1 /home/user/Desktop/bootstrap-sass-3.3.5
+16 verbose already installed skipping grunt-contrib-copy@~0.8.0 /home/user/Desktop/bootstrap-sass-3.3.5
+17 verbose already installed skipping grunt-contrib-csslint@~0.4.0 /home/user/Desktop/bootstrap-sass-3.3.5
+18 verbose already installed skipping grunt-contrib-htmlmin@~0.4.0 /home/user/Desktop/bootstrap-sass-3.3.5
+19 verbose already installed skipping grunt-contrib-cssmin@~0.12.3 /home/user/Desktop/bootstrap-sass-3.3.5
+20 verbose already installed skipping grunt-contrib-jade@~0.14.1 /home/user/Desktop/bootstrap-sass-3.3.5
+21 verbose already installed skipping grunt-contrib-jshint@~0.11.2 /home/user/Desktop/bootstrap-sass-3.3.5
+22 verbose already installed skipping grunt-contrib-less@~1.0.1 /home/user/Desktop/bootstrap-sass-3.3.5
+23 verbose already installed skipping grunt-contrib-qunit@~0.7.0 /home/user/Desktop/bootstrap-sass-3.3.5
+24 verbose already installed skipping grunt-contrib-uglify@~0.9.1 /home/user/Desktop/bootstrap-sass-3.3.5
+25 verbose already installed skipping grunt-csscomb@~3.0.0 /home/user/Desktop/bootstrap-sass-3.3.5
+26 verbose already installed skipping grunt-contrib-watch@~0.6.1 /home/user/Desktop/bootstrap-sass-3.3.5
+27 verbose already installed skipping grunt-exec@~0.4.6 /home/user/Desktop/bootstrap-sass-3.3.5
+28 verbose already installed skipping grunt-html@~4.0.3 /home/user/Desktop/bootstrap-sass-3.3.5
+29 verbose already installed skipping grunt-jekyll@~0.4.2 /home/user/Desktop/bootstrap-sass-3.3.5
+30 verbose already installed skipping grunt-saucelabs@~8.6.1 /home/user/Desktop/bootstrap-sass-3.3.5
+31 verbose already installed skipping grunt-jscs@~1.8.0 /home/user/Desktop/bootstrap-sass-3.3.5
+32 verbose cache add [ 'grunt-sed@twbs/grunt-sed#v0.2.0', null ]
+33 verbose cache add name=undefined spec="grunt-sed@twbs/grunt-sed#v0.2.0" args=["grunt-sed@twbs/grunt-sed#v0.2.0",null]
+34 verbose parsed url { protocol: null,
+34 verbose parsed url   slashes: null,
+34 verbose parsed url   auth: null,
+34 verbose parsed url   host: null,
+34 verbose parsed url   port: null,
+34 verbose parsed url   hostname: null,
+34 verbose parsed url   hash: '#v0.2.0',
+34 verbose parsed url   search: null,
+34 verbose parsed url   query: null,
+34 verbose parsed url   pathname: 'grunt-sed@twbs/grunt-sed',
+34 verbose parsed url   path: 'grunt-sed@twbs/grunt-sed',
+34 verbose parsed url   href: 'grunt-sed@twbs/grunt-sed#v0.2.0' }
+35 verbose cache add name="grunt-sed" spec="twbs/grunt-sed#v0.2.0" args=["grunt-sed","twbs/grunt-sed#v0.2.0"]
+36 verbose parsed url { protocol: null,
+36 verbose parsed url   slashes: null,
+36 verbose parsed url   auth: null,
+36 verbose parsed url   host: null,
+36 verbose parsed url   port: null,
+36 verbose parsed url   hostname: null,
+36 verbose parsed url   hash: '#v0.2.0',
+36 verbose parsed url   search: null,
+36 verbose parsed url   query: null,
+36 verbose parsed url   pathname: 'twbs/grunt-sed',
+36 verbose parsed url   path: 'twbs/grunt-sed',
+36 verbose parsed url   href: 'twbs/grunt-sed#v0.2.0' }
+37 verbose addNamed [ 'grunt-sed', 'twbs/grunt-sed#v0.2.0' ]
+38 verbose addNamed [ null, null ]
+39 verbose already installed skipping load-grunt-tasks@~3.2.0 /home/user/Desktop/bootstrap-sass-3.3.5
+40 silly lockFile 648eb2e3-grunt-sed-twbs-grunt-sed-v0-2-0 grunt-sed@twbs/grunt-sed#v0.2.0
+41 verbose lock grunt-sed@twbs/grunt-sed#v0.2.0 /home/user/.npm/648eb2e3-grunt-sed-twbs-grunt-sed-v0-2-0.lock
+42 verbose already installed skipping markdown-it@^4.2.1 /home/user/Desktop/bootstrap-sass-3.3.5
+43 verbose already installed skipping npm-shrinkwrap@^200.4.0 /home/user/Desktop/bootstrap-sass-3.3.5
+44 verbose already installed skipping time-grunt@^1.2.0 /home/user/Desktop/bootstrap-sass-3.3.5
+45 info addNameTag [ 'grunt-sed', 'twbs/grunt-sed#v0.2.0' ]
+46 verbose url raw grunt-sed
+47 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-sed' ]
+48 verbose url resolved https://registry.npmjs.org/grunt-sed
+49 info trying registry request attempt 1 at 09:37:54
+50 verbose etag "8Y52SW0ESHWNAAGOVEE0P3UVS"
+51 http GET https://registry.npmjs.org/grunt-sed
+52 http 304 https://registry.npmjs.org/grunt-sed
+53 silly registry.get cb [ 304,
+53 silly registry.get   { date: 'Mon, 30 Nov 2015 01:37:56 GMT',
+53 silly registry.get     via: '1.1 varnish',
+53 silly registry.get     'cache-control': 'max-age=60',
+53 silly registry.get     etag: '"8Y52SW0ESHWNAAGOVEE0P3UVS"',
+53 silly registry.get     age: '0',
+53 silly registry.get     connection: 'keep-alive',
+53 silly registry.get     'x-served-by': 'cache-lcy1121-LCY',
+53 silly registry.get     'x-cache': 'MISS',
+53 silly registry.get     'x-cache-hits': '0',
+53 silly registry.get     'x-timer': 'S1448847476.220816,VS0,VE631',
+53 silly registry.get     vary: 'Accept' } ]
+54 verbose etag grunt-sed from cache
+55 info maybeGithub Attempting twbs/grunt-sed#v0.2.0 from git://github.com/twbs/grunt-sed#v0.2.0
+56 silly lockFile 16ed7e0f-github-com-twbs-grunt-sed-v0-2-0 git://github.com/twbs/grunt-sed#v0.2.0
+57 verbose lock git://github.com/twbs/grunt-sed#v0.2.0 /home/user/.npm/16ed7e0f-github-com-twbs-grunt-sed-v0-2-0.lock
+58 verbose addRemoteGit [ 'git://github.com/twbs/grunt-sed', 'v0.2.0' ]
+59 verbose git remote.origin.url git://github.com/twbs/grunt-sed
+60 verbose git fetch -a origin (git://github.com/twbs/grunt-sed)
+61 verbose git rev-list -n1 v0.2.0 8dd1aea67ad1bab8a6719f0cf209bef719c66ad7
+62 verbose resolved git url git://github.com/twbs/grunt-sed#8dd1aea67ad1bab8a6719f0cf209bef719c66ad7
+63 verbose tar unpack /home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/tmp.tgz
+64 silly lockFile 4e3cee31-79586-0-9478202417958528-package tar:///home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/package
+65 verbose lock tar:///home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/package /home/user/.npm/4e3cee31-79586-0-9478202417958528-package.lock
+66 silly lockFile af03844d-79586-0-9478202417958528-tmp-tgz tar:///home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/tmp.tgz
+67 verbose lock tar:///home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/tmp.tgz /home/user/.npm/af03844d-79586-0-9478202417958528-tmp-tgz.lock
+68 silly gunzTarPerm modes [ '755', '644' ]
+69 silly gunzTarPerm extractEntry
+70 silly gunzTarPerm modified mode [ '', 509, 493 ]
+71 silly gunzTarPerm extractEntry .gitignore
+72 silly gunzTarPerm modified mode [ '.gitignore', 436, 420 ]
+73 silly gunzTarPerm extractEntry .jshintrc
+74 silly gunzTarPerm modified mode [ '.jshintrc', 436, 420 ]
+75 silly gunzTarPerm extractEntry .travis.yml
+76 silly gunzTarPerm modified mode [ '.travis.yml', 436, 420 ]
+77 silly gunzTarPerm extractEntry Gruntfile.js
+78 silly gunzTarPerm modified mode [ 'Gruntfile.js', 436, 420 ]
+79 silly gunzTarPerm extractEntry LICENSE-MIT
+80 silly gunzTarPerm modified mode [ 'LICENSE-MIT', 436, 420 ]
+81 silly gunzTarPerm extractEntry README.md
+82 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+83 silly gunzTarPerm extractEntry package.json
+84 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+85 silly gunzTarPerm extractEntry tasks/
+86 silly gunzTarPerm modified mode [ 'tasks/', 509, 493 ]
+87 silly gunzTarPerm extractEntry tasks/sed.js
+88 silly gunzTarPerm modified mode [ 'tasks/sed.js', 436, 420 ]
+89 silly gunzTarPerm extractEntry test/
+90 silly gunzTarPerm modified mode [ 'test/', 509, 493 ]
+91 silly gunzTarPerm extractEntry test/Gruntfile.js
+92 silly gunzTarPerm modified mode [ 'test/Gruntfile.js', 436, 420 ]
+93 silly gunzTarPerm extractEntry test/test.js
+94 silly gunzTarPerm modified mode [ 'test/test.js', 436, 420 ]
+95 silly lockFile 4e3cee31-79586-0-9478202417958528-package tar:///home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/package
+96 silly lockFile 4e3cee31-79586-0-9478202417958528-package tar:///home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/package
+97 silly lockFile af03844d-79586-0-9478202417958528-tmp-tgz tar:///home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/tmp.tgz
+98 silly lockFile af03844d-79586-0-9478202417958528-tmp-tgz tar:///home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/tmp.tgz
+99 verbose tar pack [ '/home/user/.npm/grunt-sed/0.2.0/package.tgz',
+99 verbose tar pack   '/home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/package' ]
+100 verbose tarball /home/user/.npm/grunt-sed/0.2.0/package.tgz
+101 verbose folder /home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/package
+102 silly lockFile 4e3cee31-79586-0-9478202417958528-package tar:///home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/package
+103 verbose lock tar:///home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/package /home/user/.npm/4e3cee31-79586-0-9478202417958528-package.lock
+104 silly lockFile f4c3862c--npm-grunt-sed-0-2-0-package-tgz tar:///home/user/.npm/grunt-sed/0.2.0/package.tgz
+105 verbose lock tar:///home/user/.npm/grunt-sed/0.2.0/package.tgz /home/user/.npm/f4c3862c--npm-grunt-sed-0-2-0-package-tgz.lock
+106 silly lockFile 4e3cee31-79586-0-9478202417958528-package tar:///home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/package
+107 silly lockFile 4e3cee31-79586-0-9478202417958528-package tar:///home/user/tmp/npm-30086-vmcIJEwA/1448847479586-0.9478202417958528/package
+108 silly lockFile f4c3862c--npm-grunt-sed-0-2-0-package-tgz tar:///home/user/.npm/grunt-sed/0.2.0/package.tgz
+109 silly lockFile f4c3862c--npm-grunt-sed-0-2-0-package-tgz tar:///home/user/.npm/grunt-sed/0.2.0/package.tgz
+110 silly lockFile 8c1ea57b-user-npm-grunt-sed-0-2-0-package /home/user/.npm/grunt-sed/0.2.0/package
+111 verbose lock /home/user/.npm/grunt-sed/0.2.0/package /home/user/.npm/8c1ea57b-user-npm-grunt-sed-0-2-0-package.lock
+112 silly lockFile 8c1ea57b-user-npm-grunt-sed-0-2-0-package /home/user/.npm/grunt-sed/0.2.0/package
+113 silly lockFile 8c1ea57b-user-npm-grunt-sed-0-2-0-package /home/user/.npm/grunt-sed/0.2.0/package
+114 verbose tar unpack /home/user/.npm/grunt-sed/0.2.0/package.tgz
+115 silly lockFile 8562dab4-user-npm-grunt-sed-0-2-0-package tar:///home/user/.npm/grunt-sed/0.2.0/package
+116 verbose lock tar:///home/user/.npm/grunt-sed/0.2.0/package /home/user/.npm/8562dab4-user-npm-grunt-sed-0-2-0-package.lock
+117 silly lockFile f4c3862c--npm-grunt-sed-0-2-0-package-tgz tar:///home/user/.npm/grunt-sed/0.2.0/package.tgz
+118 verbose lock tar:///home/user/.npm/grunt-sed/0.2.0/package.tgz /home/user/.npm/f4c3862c--npm-grunt-sed-0-2-0-package-tgz.lock
+119 silly gunzTarPerm modes [ '755', '644' ]
+120 silly gunzTarPerm extractEntry package.json
+121 silly gunzTarPerm extractEntry README.md
+122 silly gunzTarPerm extractEntry LICENSE-MIT
+123 silly gunzTarPerm extractEntry tasks/sed.js
+124 silly lockFile 8562dab4-user-npm-grunt-sed-0-2-0-package tar:///home/user/.npm/grunt-sed/0.2.0/package
+125 silly lockFile 8562dab4-user-npm-grunt-sed-0-2-0-package tar:///home/user/.npm/grunt-sed/0.2.0/package
+126 silly lockFile f4c3862c--npm-grunt-sed-0-2-0-package-tgz tar:///home/user/.npm/grunt-sed/0.2.0/package.tgz
+127 silly lockFile f4c3862c--npm-grunt-sed-0-2-0-package-tgz tar:///home/user/.npm/grunt-sed/0.2.0/package.tgz
+128 verbose chmod /home/user/.npm/grunt-sed/0.2.0/package.tgz 644
+129 verbose chown /home/user/.npm/grunt-sed/0.2.0/package.tgz [ 1000, 1000 ]
+130 silly lockFile d8d1e15b-git-github-com-twbs-grunt-sed git://github.com/twbs/grunt-sed
+131 silly lockFile 648eb2e3-grunt-sed-twbs-grunt-sed-v0-2-0 grunt-sed@twbs/grunt-sed#v0.2.0
+132 silly lockFile 648eb2e3-grunt-sed-twbs-grunt-sed-v0-2-0 grunt-sed@twbs/grunt-sed#v0.2.0
+133 info already installed grunt-sed@0.2.0
+134 silly resolved []
+135 info build /home/user/Desktop/bootstrap-sass-3.3.5
+136 verbose linkStuff [ false, false, false, '/home/user/Desktop' ]
+137 info linkStuff bootstrap@3.3.5
+138 verbose linkBins bootstrap@3.3.5
+139 verbose linkMans bootstrap@3.3.5
+140 verbose rebuildBundles bootstrap@3.3.5
+141 verbose rebuildBundles [ '.bin',
+141 verbose rebuildBundles   'btoa',
+141 verbose rebuildBundles   'ejs',
+141 verbose rebuildBundles   'glob',
+141 verbose rebuildBundles   'grunt',
+141 verbose rebuildBundles   'grunt-autoprefixer',
+141 verbose rebuildBundles   'grunt-contrib-clean',
+141 verbose rebuildBundles   'grunt-contrib-compress',
+141 verbose rebuildBundles   'grunt-contrib-concat',
+141 verbose rebuildBundles   'grunt-contrib-connect',
+141 verbose rebuildBundles   'grunt-contrib-copy',
+141 verbose rebuildBundles   'grunt-contrib-csslint',
+141 verbose rebuildBundles   'grunt-contrib-cssmin',
+141 verbose rebuildBundles   'grunt-contrib-htmlmin',
+141 verbose rebuildBundles   'grunt-contrib-jade',
+141 verbose rebuildBundles   'grunt-contrib-jshint',
+141 verbose rebuildBundles   'grunt-contrib-less',
+141 verbose rebuildBundles   'grunt-contrib-qunit',
+141 verbose rebuildBundles   'grunt-contrib-uglify',
+141 verbose rebuildBundles   'grunt-contrib-watch',
+141 verbose rebuildBundles   'grunt-csscomb',
+141 verbose rebuildBundles   'grunt-exec',
+141 verbose rebuildBundles   'grunt-html',
+141 verbose rebuildBundles   'grunt-jekyll',
+141 verbose rebuildBundles   'grunt-jscs',
+141 verbose rebuildBundles   'grunt-saucelabs',
+141 verbose rebuildBundles   'grunt-sed',
+141 verbose rebuildBundles   'load-grunt-tasks',
+141 verbose rebuildBundles   'markdown-it',
+141 verbose rebuildBundles   'mincer',
+141 verbose rebuildBundles   'node-sass',
+141 verbose rebuildBundles   'npm-shrinkwrap',
+141 verbose rebuildBundles   'time-grunt' ]
+142 verbose rebuild bundle /home/user/Desktop/bootstrap-sass-3.3.5/node_modules/ejs
+143 info build /home/user/Desktop/bootstrap-sass-3.3.5/node_modules/ejs
+144 info preinstall ejs@1.0.0
+145 verbose linkStuff [ false,
+145 verbose linkStuff   false,
+145 verbose linkStuff   false,
+145 verbose linkStuff   '/home/user/Desktop/bootstrap-sass-3.3.5/node_modules' ]
+146 info linkStuff ejs@1.0.0
+147 verbose linkBins ejs@1.0.0
+148 verbose linkMans ejs@1.0.0
+149 verbose rebuildBundles ejs@1.0.0
+150 info install ejs@1.0.0
+151 info postinstall ejs@1.0.0
+152 verbose rebuild bundle /home/user/Desktop/bootstrap-sass-3.3.5/node_modules/mincer
+153 info build /home/user/Desktop/bootstrap-sass-3.3.5/node_modules/mincer
+154 info preinstall mincer@1.2.5
+155 verbose linkStuff [ false,
+155 verbose linkStuff   false,
+155 verbose linkStuff   false,
+155 verbose linkStuff   '/home/user/Desktop/bootstrap-sass-3.3.5/node_modules' ]
+156 info linkStuff mincer@1.2.5
+157 verbose linkBins mincer@1.2.5
+158 verbose link bins [ { mincer: 'bin/mincer.js' },
+158 verbose link bins   '/home/user/Desktop/bootstrap-sass-3.3.5/node_modules/.bin',
+158 verbose link bins   false ]
+159 verbose linkMans mincer@1.2.5
+160 verbose rebuildBundles mincer@1.2.5
+161 verbose rebuildBundles [ 'argparse',
+161 verbose rebuildBundles   'compressible',
+161 verbose rebuildBundles   'fs-tools',
+161 verbose rebuildBundles   'hike',
+161 verbose rebuildBundles   'lodash',
+161 verbose rebuildBundles   'mimoza',
+161 verbose rebuildBundles   'pako',
+161 verbose rebuildBundles   'shellwords',
+161 verbose rebuildBundles   'source-map' ]
+162 info install mincer@1.2.5
+163 info postinstall mincer@1.2.5
+164 verbose rebuild bundle /home/user/Desktop/bootstrap-sass-3.3.5/node_modules/node-sass
+165 info build /home/user/Desktop/bootstrap-sass-3.3.5/node_modules/node-sass
+166 info preinstall node-sass@2.0.1
+167 verbose linkStuff [ false,
+167 verbose linkStuff   false,
+167 verbose linkStuff   false,
+167 verbose linkStuff   '/home/user/Desktop/bootstrap-sass-3.3.5/node_modules' ]
+168 info linkStuff node-sass@2.0.1
+169 verbose linkBins node-sass@2.0.1
+170 verbose link bins [ { 'node-sass': 'bin/node-sass' },
+170 verbose link bins   '/home/user/Desktop/bootstrap-sass-3.3.5/node_modules/.bin',
+170 verbose link bins   false ]
+171 verbose linkMans node-sass@2.0.1
+172 verbose rebuildBundles node-sass@2.0.1
+173 verbose rebuildBundles [ '.bin',
+173 verbose rebuildBundles   'chalk',
+173 verbose rebuildBundles   'cross-spawn',
+173 verbose rebuildBundles   'gaze',
+173 verbose rebuildBundles   'get-stdin',
+173 verbose rebuildBundles   'meow',
+173 verbose rebuildBundles   'mkdirp',
+173 verbose rebuildBundles   'mocha',
+173 verbose rebuildBundles   'nan',
+173 verbose rebuildBundles   'npmconf',
+173 verbose rebuildBundles   'object-assign',
+173 verbose rebuildBundles   'replace-ext',
+173 verbose rebuildBundles   'request',
+173 verbose rebuildBundles   'sass-graph',
+173 verbose rebuildBundles   'semver',
+173 verbose rebuildBundles   'shelljs' ]
+174 info install node-sass@2.0.1
+175 verbose unsafe-perm in lifecycle false
+176 info postinstall node-sass@2.0.1
+177 verbose unsafe-perm in lifecycle false
+178 info node-sass@2.0.1 Failed to exec postinstall script
+179 error node-sass@2.0.1 postinstall: `node scripts/build.js`
+179 error Exit status 135
+180 error Failed at the node-sass@2.0.1 postinstall script.
+180 error This is most likely a problem with the node-sass package,
+180 error not with npm itself.
+180 error Tell the author that this fails on your system:
+180 error     node scripts/build.js
+180 error You can get their info via:
+180 error     npm owner ls node-sass
+180 error There is likely additional logging output above.
+181 error System Linux 3.13.0-68-generic
+182 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+183 error cwd /home/user/Desktop/bootstrap-sass-3.3.5
+184 error node -v v0.10.24
+185 error npm -v 1.3.21
+186 error code ELIFECYCLE
+187 verbose exit [ 1, true ]
