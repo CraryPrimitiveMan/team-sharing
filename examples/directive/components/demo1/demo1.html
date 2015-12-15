@@ -1,0 +1,30 @@
+<div ng-controller="hrm.demo1 as hrm" class="demo">
+    <h2 class="sub-header" >{{hrm.title}}</h2>
+    <pre>
+        define(['app'], function(app) {
+          app.registerDirective('hrmD1', [
+            function() {
+              return {
+                restrict: 'EA',
+                priority: 2,
+                template: '&lt;div&gt;d1&lt;/div&gt;'
+              };
+            }
+          ]);
+        });
+
+        define(['app'], function(app) {
+          app.registerDirective('hrmD2', [
+            function() {
+              return {
+                restrict: 'EA',
+                priority: 3,
+                template: '&lt;div&gt;d2&lt;/div&gt;'
+              };
+            }
+          ]);
+        });
+    </pre>
+    <div hrm-d2 hrm-d1 ng-model="hrm.check"></div>
+</div>
+

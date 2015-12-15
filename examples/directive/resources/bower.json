@@ -1,0 +1,40 @@
+{
+    "name": "html-app-demo",
+    "version": "0.0.0",
+    "homepage": "https://github.com/beginor/html-app-demo",
+    "description": "html demo app with angular + asp.net webapi + owin",
+    "main": "index.html",
+    "keywords": [
+        "angular",
+        "asp.net",
+        "webapi",
+        "owin",
+        "nowin"
+    ],
+    "authors": [
+        "beginor"
+    ],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+    "require-css": "0.1.8",
+    "requirejs": "2.1.20",
+    "angular": "1.4.5",
+    "angular-animate": "1.4.5",
+    "angular-aria": "1.4.5",
+    "angular-bootstrap": "0.13.4",
+    "angular-material": "0.11.0",
+    "angular-resource": "1.4.5",
+    "angular-route": "1.4.5",
+    "bootstrap": "3.3.5",
+    "hammerjs": "2.0.4",
+    "jquery": "2.1.4"
+  }
+}

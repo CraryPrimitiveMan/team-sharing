@@ -1,0 +1,83 @@
+<div ng-controller="hrm.demo2 as hrm" class="demo demo2">
+    <h2 class="sub-header" >{{hrm.title}}</h2>
+    <div class="demo-container">
+      <pre>
+        define(['app'], function(app) {
+          app.registerDirective('hrmAttribure', [
+            function() {
+              return {
+                restrict: 'EA',
+                scope: true,
+                replace: true,
+                template: '&lt;div&gt;{{who}}!&lt;/div&gt;',
+                controller: function($scope, $element){
+                  $scope.who = $scope.who + "controller ";
+                },
+                controllerAs:'myController',
+                link: function(scope, el, attr) {
+                  scope.who = scope.who + "link ";
+                },
+                compile: function(element, attributes) {
+                  return {
+                    pre: function preLink(scope, element, attributes) {
+                      scope.who = scope.who + "compile pre ";
+                    },
+                    post: function postLink(scope, element, attributes) {
+                      scope.who = scope.who + "compile link ";
+                    }
+                  };
+                }
+              };
+            }
+          ]);
+        });
+      </pre>
+      <button ng-click="hrm.runCode(1)" ng-if="!hrm.show1">运行代码</button>
+      <div hrm-attribure ng-model="hrm.check" ng-if="hrm.show1"></div>
+
+      <!-- <div ng-if="hrm.show1">controller先运行，link后运行，link和compile不兼容。compile改变dom,link事件的触发和绑定</div> -->
+    </div>
+    <div class="demo-container">
+      <pre>
+        define(['app'], function(app) {
+          app.registerDirective('hrmAttribure1', [
+            function() {
+              return {
+                restrict: 'EA',
+                scope: true,
+                replace: true,
+                template: function(tElement,tAttrs){
+                  console.log(tAttrs);
+                  var _html = '';
+                  _html += '&lt;div&gt;{{who}}&lt;/div&gt;';
+                  return _html;
+                },
+                controller: function($scope, $element){
+                  $scope.who = $scope.who + "controller ";
+                },
+                controllerAs:'myController',
+                link: function(scope, el, attr) {
+                  scope.who = scope.who + "link ";
+                },
+                compile: function(element, attributes) {
+                  return {
+                    pre: function preLink(scope, element, attributes) {
+                      scope.who = scope.who + "compile pre ";
+                    },
+                    post: function postLink(scope, element, attributes) {
+                      scope.who = scope.who + "compile link ";
+                    }
+                  };
+                }
+              };
+            }
+          ]);
+        });
+
+      </pre>
+      <div ng-repeat="i in [1,2,3,4,5]">
+        <div hrm-attribure1 ng-model="hrm.check"></div>
+      </div>
+    </div>
+</div>
+

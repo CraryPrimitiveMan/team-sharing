@@ -1,0 +1,108 @@
+<div ng-controller="hrm.demo3 as hrm" class="demo demo3">
+  <h2 class="sub-header" >{{hrm.title}}</h2>
+  <div class="demo-container">
+    <pre>
+      define(['app'], function(app) {
+        app.registerDirective('hrmD4', [
+          function() {
+            return {
+              restrict: 'EA',
+              transclude: true,
+              scope: {},
+              templateUrl: 'components/view/d4.html',
+              link: function ($scope, element) {
+                $scope.name = 'Jeff';
+                $scope.hello = 'hello';
+              }
+            };
+          }
+        ]);
+      });
+    </pre>
+    <div hrm-d4>
+      Check out the contents, {{name}}! {{hello}}
+    </div>
+  </div>
+  <div class="demo-container">
+    <pre>
+      define(['app'], function(app) {
+        app.registerDirective('hrmD3', [
+          function() {
+            return {
+              restrict: 'EA',
+              transclude: true,
+              scope: {
+                'close': '&onClose'
+              },
+              templateUrl: 'components/view/d3.html'
+            };
+          }
+        ]);
+      });
+    </pre>
+    <div hrm-d3  ng-hide="dialogIsHidden" on-close="hideDialog()">
+      Check out the contents, {{name}}!
+      <div hrm-d3  ng-hide="dialogIsHidden" on-close="hideDialog()">Check out the contents, {{name}}!</div>
+    </div>
+  </div>
+  <div class="demo-container">
+    <pre>
+      define(['app'], function(app) {
+        app.registerDirective('myTabs', [
+          function() {
+            return {
+              restrict: 'EA',
+              transclude: true,
+              scope: {},
+              controller: function($scope) {
+                var panes = $scope.panes = [];
+
+                $scope.select = function(pane) {
+                  angular.forEach(panes, function(pane) {
+                    pane.selected = false;
+                  });
+                  pane.selected = true;
+                };
+
+                this.addPane = function(pane) {
+                  if (panes.length === 0) {
+                    $scope.select(pane);
+                  }
+                  panes.push(pane);
+                };
+              },
+              templateUrl: 'components/view/tab.html'
+            };
+          }
+        ]);
+        app.registerDirective('myPane', [
+          function() {
+            return {
+              require: '^myTabs',
+              restrict: 'EA',
+              transclude: true,
+              scope: {
+                title: '@'
+              },
+              link: function(scope, element, attrs, tabsCtrl) {
+                tabsCtrl.addPane(scope);
+              },
+              templateUrl: 'components/view/pane.html'
+            };
+          }
+        ]);
+      });
+    </pre>
+    <my-tabs>
+      <my-pane title="Hello">
+        <h4>Hello</h4>
+        <p>Look this</p>
+      </my-pane>
+      <my-pane title="World">
+        <h4>World</h4>
+        <em>Look that</em>
+      </my-pane>
+    </my-tabs>
+  </div>
+</div>
+
